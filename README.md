@@ -32,14 +32,14 @@ See deployed site here:
 - AAU who is verified as a shelter worker, I want to delete the animals that are no longer available for adoption
 - AAU who is verified as a shelter worker, I want to edit the animal details
 
-### User Flow
-![Userflow]()
+
+### Data ERD 
+![ERD](lifetimepawsERD.png)
+
 
 ### Wireframe
 ![Wireframe]()
 
-### Data ERD 
-![ERD]()
 
 ## Technologies Used:
 - Django
