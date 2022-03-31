@@ -33,7 +33,7 @@ See deployed site here:
 - AAU who is verified as a shelter worker, I want to edit the animal details
 
 ### User Flow
-![Userflow]()
+![Userflow](lifetimepawsERD.png)
 
 ### Wireframe
 ![Wireframe]()
