@@ -38,7 +38,7 @@ See deployed site here:
 
 
 ### Wireframe
-![Wireframe]()
+![Wireframe](lifetimepawswireframe.jpg)
 
 
 ## Technologies Used:
