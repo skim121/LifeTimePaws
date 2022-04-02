@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% block content %}
+    <h1>Available Dogs</h1>
+    {% for dog in dogs %}
+    <h3>Name: {{dog.name}}</h3>
+    <h3>Age: {{dog.age}}</h3>
+    {% endfor %}
+{% endblock %}
