@@ -5,7 +5,7 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import DeleteView, CreateView, UpdateView
 from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse 
-from .models import Cheese, Wine 
+from .models import Animal
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
@@ -14,3 +14,24 @@ from django.utils.decorators import method_decorator
 
 class Home(TemplateView):
     template_name = "home.html"
+
+class DogList(TemplateView): 
+    template_name = "doglist.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["dogs"] = Animal.objects.filter(type='dog')
+        return context
+
+class CatList(TemplateView): 
+    template_name = "catlist.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cats"] = Animal.objects.filter(type='cat')
+        return context
+
+class AnimalsCreate(CreateView):
+    model = Animal
+    fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'days_in_shelter', 'days_left', 'description', 'image']
+    template_name = 'animal_create.html'
+    success_url = "/dogs/"
+    
