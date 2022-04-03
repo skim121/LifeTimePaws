@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+<!-- {% load cloudinary %} -->
+
+{% block content %}
+    <h1>Available Cats</h1>
+    {% for cat in cats %}
+    <h3>Name: {{cat.name}}</h3>
+    <h3>Age: {{cat.age}}</h3>
+    <img src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_150,w_150/{{cat.image}}" alt="{{cat.name}}">
+    {% endfor %}
+{% endblock %}

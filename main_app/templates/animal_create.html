@@ -6,7 +6,6 @@
 	<div>
         <form method="POST" enctype="multipart/form-data">
             {% csrf_token %} 
-            {{ form.media }}
             {{form.as_p}}
             <button type = "submit">Submit</button>
         </form>

@@ -22,9 +22,16 @@ class DogList(TemplateView):
         context["dogs"] = Animal.objects.filter(type='dog')
         return context
 
+class CatList(TemplateView): 
+    template_name = "catlist.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["cats"] = Animal.objects.filter(type='cat')
+        return context
+
 class AnimalsCreate(CreateView):
     model = Animal
-    fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'days_in_shelter', 'days_left', 'description', 'img']
+    fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'days_in_shelter', 'days_left', 'description', 'image']
     template_name = 'animal_create.html'
     success_url = "/dogs/"
     

@@ -21,7 +21,7 @@ class Animal(models.Model):
     days_in_shelter = models.IntegerField()
     days_left = models.IntegerField()
     description = models.CharField(max_length=250) 
-    img = models.ImageField(null = True, blank = True, upload_to="images/")
+    image = models.ImageField(null = True, blank = True, upload_to="images/")
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

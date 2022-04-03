@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
+{% load cloudinary %}
+
+
 {% block content %}
     <h1>Available Dogs</h1>
     {% for dog in dogs %}
     <h3>Name: {{dog.name}}</h3>
     <h3>Age: {{dog.age}}</h3>
+    <img src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_150,w_150/{{dog.image}}" alt="{{dog.name}}">
     {% endfor %}
 {% endblock %}
