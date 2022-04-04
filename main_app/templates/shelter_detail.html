@@ -1,0 +1,15 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div>
+    <h1>{{shelter.name}}</h1>
+    <h3> Location: {{shelter.location}} </h3>
+    <h3> This shelter is a {{shelter.kill}} shelter. </h3>
+    <a href="{{shelter.website}}">Click here to visit their website</a>
+</div>
+
+<a href="{% url 'shelter_update' shelter.pk %}">Edit</a>
+<a href="{% url 'shelter_delete' shelter.pk %}">Delete</a>
+
+{% endblock %}
