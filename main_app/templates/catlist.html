@@ -3,9 +3,10 @@
 
 {% block content %}
     <h1>Available Cats</h1>
-    {% for cat in cats %}
+    {% for cat in paws %}
     <h3>Name: {{cat.name}}</h3>
     <h3>Age: {{cat.age}}</h3>
     <img src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_150,w_150/{{cat.image}}" alt="{{cat.name}}">
+    <a href="{% url 'paws_detail' cat.pk %}">See More</a>
     {% endfor %}
 {% endblock %}

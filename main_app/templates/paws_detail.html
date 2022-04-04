@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+
+{% block content %}
+
+<div>
+    <h1>More about {{animal.name}}</h1>
+    <img src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_150,w_150/{{animal.image}}" alt="{{animal.name}}">
+    <h3> breed: {{animal.breed}} </h3>
+    <h3> age: {{animal.age}} </h3>
+    <h3> sex: {{animal.sex}} </h3>
+    <h3> weight: {{animal.weight}} </h3>
+    <h3> description: {{animal.description}}</h3>
+    <h3> days in shelter: {{animal.days_in_shelter}} </h3>
+    <h3> days left in shelter: {{animal.days_left}} </h3>
+
+    <a href="{% url 'animal_update' animal.pk %}">Edit</a>
+    <a href="{% url 'animal_delete' animal.pk %}">Delete</a>
+</div>
+
+
+
+{% endblock %}
