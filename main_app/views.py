@@ -14,6 +14,10 @@ from django.utils.decorators import method_decorator
 
 class Home(TemplateView):
     template_name = "home.html"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["paws"] = Animal.objects.all()
+        return context
 
 class DogList(TemplateView): 
     template_name = "doglist.html"
@@ -26,12 +30,29 @@ class CatList(TemplateView):
     template_name = "catlist.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["cats"] = Animal.objects.filter(type='cat')
+        context["paws"] = Animal.objects.filter(type='cat')
         return context
 
 class AnimalsCreate(CreateView):
     model = Animal
     fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'days_in_shelter', 'days_left', 'description', 'image']
     template_name = 'animal_create.html'
-    success_url = "/dogs/"
+    # success_url = "/dogs/"
+    def get_success_url(self): 
+        return reverse('paws_detail', kwargs={'pk': self.object.pk})
     
+class AnimalDetail(DetailView):
+    model = Animal
+    template_name = "paws_detail.html"
+
+class AnimalUpdate(UpdateView): 
+    model = Animal
+    fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'days_in_shelter', 'days_left', 'description', 'image']
+    template_name = "animal_update.html"
+    def get_success_url(self): 
+        return reverse('paws_detail', kwargs={'pk': self.object.pk})
+
+class AnimalDelete(DeleteView): 
+    model = Animal
+    template_name = "animal_delete_confirm.html"
+    success_url = "/"
