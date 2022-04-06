@@ -7,9 +7,10 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse 
 from .models import Animal, Shelter
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth import authenticate, login, logout, get_user_model
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.backends import ModelBackend
 from django.utils.decorators import method_decorator 
 
 class Home(TemplateView):
@@ -66,7 +67,6 @@ class ShelterList(TemplateView):
 class ShelterDetail(DetailView): 
     model = Shelter
     template_name = "shelter_detail.html"
-    print(Shelter)
 
 class ShelterCreate(CreateView): 
     model = Shelter
@@ -87,3 +87,18 @@ class ShelterDelete(DeleteView):
     model = Shelter
     template_name = "shelter_delete_confirm.html"
     success_url = "/shelters/"
+
+#logging into admin site with case insensitive email 
+class CaseInsensitiveModelBackend(ModelBackend): 
+    def authenticate(self, request, username = None, password = None, **kwargs):
+        UserModel = get_user_model()
+        if username is None: 
+            username = kwargs.get(UserModel.USERNAME_FIELD)
+        try: 
+            case_insensitive_username_field = '{}__iexact'.format(UserModel.USERNAME_FIELD)
+            user = UserModel._default_manager.get(**{case_insensitive_username_field:username})
+        except UserModel.DoesNotExist: 
+            UserModel().set_password(password)
+        else: 
+            if user.check_password(password) and self.user_can_authenticate(user): 
+                return user
