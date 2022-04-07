@@ -13,6 +13,12 @@
            <input type="password" name="password1" placeholder="Password" required>
            <input type="password" name="password2" placeholder="Confirm password" required>
            <input type="checkbox" name="shelteradmin" placeholder = "shelter_admin">Are you a shelter worker?</input>  -->
+           <ul>
+               <li>Your password can’t be too similar to your other personal information.</li>
+               <li>Your password must contain at least 8 characters.</li>
+               <li>Your password can’t be a commonly used password.</li>
+               <li>Your password can’t be entirely numeric.</li>
+           </ul>
         </div>
         {% for field in signup_view %}
         <p>
