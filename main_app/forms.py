@@ -21,16 +21,16 @@ from .models import User
 #         raise forms.ValidationError(f"Email {email} is already in use")
 
 class SignUpForm(forms.ModelForm): 
-    password = forms.CharField(widget=forms.PasswordInput)
+    password = forms.CharField(label = 'Password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
 
     class Meta: 
         model = User
-        fields = ['email', 'fullname', 'shelter_admin']
+        fields = ['email', 'fullname', 'shelter_admin', 'password', 'password2']
     
     def clean_email(self):
         #verify email is available 
-        email = self.cleaned_data.get('email')
+        email = self.cleaned_data.get('email').lower()
         emailsearch = User.objects.filter(email=email)
         if emailsearch.exists(): 
             raise forms.ValidationError("Email is already in use")
@@ -44,3 +44,18 @@ class SignUpForm(forms.ModelForm):
         if password is not None and password != password2: 
             self.add_error("password2", "Passwords must match")
         return cleaned_data
+
+
+class LogInForm(forms.ModelForm): 
+    password = forms.CharField(label = 'Password', widget=forms.PasswordInput)
+
+    class Meta: 
+        model = User
+        fields = ['email', 'password']
+    
+    def clean(self): 
+        if self.is_valid(): 
+            email = self.cleaned_data.get('email').lower()
+            password = self.cleaned_data.get('password')
+            if not authenticate(email=email, password=password):
+                raise forms.ValidationError("Email or password not correct")

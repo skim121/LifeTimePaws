@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.backends import ModelBackend
 from django.utils.decorators import method_decorator 
 from django.shortcuts import render, redirect
-from .forms import SignUpForm
+from .forms import SignUpForm, LogInForm
 
 class Home(TemplateView):
     template_name = "home.html"
@@ -143,3 +143,32 @@ def signup_view(request, backend='django.contrib.auth.backends.ModelBackend'):
     else:
         form = SignUpForm()
         return render(request, 'signup.html', {'form': form})
+
+def logout_view(request): 
+    logout(request)
+    return HttpResponseRedirect('/')
+
+def login_view(request): 
+    # if POST, then authenticate the user (submitting the username and password)
+    if request.method == 'POST':
+        form = LogInForm(request.POST)
+        if form.is_valid():
+            e = form.cleaned_data.get('email')
+            p = form.cleaned_data.get('password')
+            # e = request.GET.get('email','')
+            # p = request.GET.get('password','')
+            user = authenticate(email = e, password = p)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    return HttpResponseRedirect('/')
+                else:
+                    print('The account has been disabled')
+                    return HttpResponseRedirect('/login')
+        else: 
+            return render(request, 'login.html', {'form': form})     
+
+    else:
+        # user is going to the login page
+        form = LogInForm()
+        return render(request, 'login.html', {'form': form})    
