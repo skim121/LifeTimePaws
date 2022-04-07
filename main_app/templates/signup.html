@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+   <h1>Sign up</h1>
+   <form action="" method="post">
+       {% csrf_token %}
+       <div>
+           <input type="email" name = "email" placeholder="Email address">
+           <input type="text" name ="fullname" placeholder="Fullname">
+           <input type="password" name="password1" placeholder="Password" required>
+           <input type="password" name="password2" placeholder="Confirm password" required>
+           <input type="checkbox" name="shelteradmin" placeholder = "shelter_admin">Are you a shelter worker?</input> 
+        </div>
+        {% for field in signup_view %}
+        <p>
+        {% for error in field.errors %}
+        <p>{{ error }}</p>
+        {% endfor %}    
+        </p>
+        {% endfor %} 
+        {% if signup_view.non_field_errors %}
+        <p>{{signup_view.non_field_errors</p>
+        {% endif %} 
+        
+        <button type="submit">Sign Up</button>
+
+   </form>
+
+{% endblock %} 
+

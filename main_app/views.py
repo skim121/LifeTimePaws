@@ -12,6 +12,8 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.backends import ModelBackend
 from django.utils.decorators import method_decorator 
+from django.shortcuts import render, redirect
+from .forms import SignUpForm
 
 class Home(TemplateView):
     template_name = "home.html"
@@ -102,3 +104,27 @@ class CaseInsensitiveModelBackend(ModelBackend):
         else: 
             if user.check_password(password) and self.user_can_authenticate(user): 
                 return user
+
+def signup_view(request, *args, **kwargs): 
+    user = request.user
+    if user.is_authenticated:
+        return HttpResponse (f"You are already authenticated")
+    context = {}
+
+    if request.POST:
+        form = SignUpForm(request.POST)
+        if form.is_valid():
+            form.save()
+            email = form.cleaned_data.get('email').lower()
+            raw_password = form.cleaned_data.get('password1')
+            user = authenticate(email= email, password = raw_password)
+            login(request, user)
+            destination = kwargs.get("next")
+            if destination: 
+                return redirect (destination)
+            return redirect ('home')
+        else: 
+            context['signup_form'] = form
+
+    return render(request, 'signup.html', context) 
+
