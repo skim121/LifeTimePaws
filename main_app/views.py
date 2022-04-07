@@ -15,6 +15,8 @@ from django.utils.decorators import method_decorator
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, LogInForm
 
+User = get_user_model()
+
 class Home(TemplateView):
     template_name = "home.html"
     def get_context_data(self, **kwargs):
@@ -172,3 +174,7 @@ def login_view(request):
         # user is going to the login page
         form = LogInForm()
         return render(request, 'login.html', {'form': form})    
+
+def profile(request, fullname):
+    user = User.objects.get(fullname = fullname)
+    return render(request, 'profile.html', {'fullname': fullname})
