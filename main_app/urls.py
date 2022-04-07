@@ -15,6 +15,7 @@ urlpatterns = [
     path('shelter/<int:pk>', views.ShelterDetail.as_view(), name="shelter_detail"),
     path('shelter/<int:pk>/update', views.ShelterUpdate.as_view(), name="shelter_update"),
     path('shelter/<int:pk>/delete', views.ShelterDelete.as_view(), name="shelter_delete"),
+    path('signup/', views.signup_view, name="signup"), 
 
 
 ]
