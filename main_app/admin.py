@@ -4,8 +4,8 @@ from django.contrib.auth.admin import UserAdmin
 
 # How the admin page looks 
 class MyUserAdmin(UserAdmin):
-    list_display = ('email', 'fullname', 'shelter_admin', 'is_superuser')
-    search_fields = ('email', 'fullname', 'shelter_admin')
+    list_display = ('email', 'fullname', 'shelter_admin', 'is_superuser',)
+    search_fields = ('email', 'fullname', 'shelter_admin',)
 
     filter_horizontal = ()
     list_filter = ()
