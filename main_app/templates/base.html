@@ -16,10 +16,14 @@
 
 <body>
     <nav>
+    {% if user.is_authenticated %}
     <a href="/admin">Admin</a>
-    <a href="/login">Login</a>
+    <a href="{% url 'profile' user.fullname %}">Welcome, {{ user.fullname }}!</a>
     <a href="/logout">Logout</a>
+    {% else %}
+    <a href="/login">Login</a>
     <a href="/signup">Sign Up</a>
+    {% endif %}
     <a href="/">Home</a>
     <a href="/dogs">Dogs</a>
     <a href="/cats">Cats</a>
