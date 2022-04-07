@@ -9,6 +9,7 @@ class MyUserAdmin(UserAdmin):
 
     filter_horizontal = ()
     list_filter = ()
+    add_fieldsets = ()
     fieldsets = ()
 
     ordering = ("fullname",) #need this to override django default of username ordering and it needs to be a tuple
