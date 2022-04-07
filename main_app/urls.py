@@ -18,7 +18,7 @@ urlpatterns = [
     path('signup/', views.signup_view, name="signup"), 
     path('login/', views.login_view, name="login"), 
     path('logout/', views.logout_view, name="logout"), 
-    path('user/<fullname>/', views.profile, name="profile"),
+    path('user/<int:id>/', views.profile, name="profile"),
     # path('profile/favorites/', views.favorite_list, name = "favorite_list"),
     path('fav/<int:id>/', views.favorite_add, name="favorite_add"), 
 
