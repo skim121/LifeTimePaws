@@ -105,26 +105,41 @@ class CaseInsensitiveModelBackend(ModelBackend):
             if user.check_password(password) and self.user_can_authenticate(user): 
                 return user
 
-def signup_view(request, *args, **kwargs): 
-    user = request.user
-    if user.is_authenticated:
-        return HttpResponse (f"You are already authenticated")
-    context = {}
+# def signup_view(request, *args, **kwargs): 
+#     user = request.user
+#     if user.is_authenticated:
+#         return HttpResponse (f"You are already authenticated")
+#     context = {}
 
-    if request.POST:
+#     if request.method == 'POST':
+#         form = SignUpForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             email = form.cleaned_data.get('email').lower()
+#             raw_password = form.cleaned_data.get('password1')
+#             user = authenticate(email= email, password = raw_password)
+#             login(request, user)
+#             destination = kwargs.get("next")
+#             if destination: 
+#                 return redirect (destination)
+#             return redirect ('home')
+#         else: 
+#             context['signup_form'] = form
+
+#     return render(request, 'signup.html', context) 
+
+def signup_view(request, backend='django.contrib.auth.backends.ModelBackend'):
+    if request.method == 'POST':
         form = SignUpForm(request.POST)
-        if form.is_valid():
-            form.save()
-            email = form.cleaned_data.get('email').lower()
-            raw_password = form.cleaned_data.get('password1')
-            user = authenticate(email= email, password = raw_password)
-            login(request, user)
-            destination = kwargs.get("next")
-            if destination: 
-                return redirect (destination)
-            return redirect ('home')
-        else: 
-            context['signup_form'] = form
+        if form.is_valid(): 
+            print(form)
+            user = form.save()
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            print ('Hi', user.fullname)
+            return HttpResponseRedirect('/')
+        else:
+            return render(request, 'signup.html', {'form': form})
 
-    return render(request, 'signup.html', context) 
-
+    else:
+        form = SignUpForm()
+        return render(request, 'signup.html', {'form': form})

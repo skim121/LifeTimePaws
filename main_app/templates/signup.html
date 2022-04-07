@@ -4,14 +4,15 @@
 {% block content %}
 
    <h1>Sign up</h1>
-   <form action="" method="post">
+   <form action="" method="post" id="registerform">
        {% csrf_token %}
        <div>
-           <input type="email" name = "email" placeholder="Email address">
+           {{ form.as_p}}
+           <!-- <input type="email" name = "email" placeholder="Email address">
            <input type="text" name ="fullname" placeholder="Fullname">
            <input type="password" name="password1" placeholder="Password" required>
            <input type="password" name="password2" placeholder="Confirm password" required>
-           <input type="checkbox" name="shelteradmin" placeholder = "shelter_admin">Are you a shelter worker?</input> 
+           <input type="checkbox" name="shelteradmin" placeholder = "shelter_admin">Are you a shelter worker?</input>  -->
         </div>
         {% for field in signup_view %}
         <p>
@@ -23,10 +24,10 @@
         {% if signup_view.non_field_errors %}
         <p>{{signup_view.non_field_errors</p>
         {% endif %} 
-        
-        <button type="submit">Sign Up</button>
-
+        <input type="submit" value = "Submit">
    </form>
+
+   <!-- <button type="submit" form = "registerform" value="Submit">Sign Up</button> -->
 
 {% endblock %} 
 
