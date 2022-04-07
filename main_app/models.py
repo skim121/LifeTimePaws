@@ -1,5 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.hashers import make_password
+
 
 #This is repeatitive on purpose - there is a shorter way to write this (with base function and other functions to pass in data) but it is not advisable to pass in password information directly. Passing in password would make it bypass encryption and make the user account less secure.
 class MyUserManager(BaseUserManager): 
@@ -13,7 +15,7 @@ class MyUserManager(BaseUserManager):
             fullname = fullname, 
             shelter_admin = False,
         )
-        user.set_password(password)
+        user.set_password(make_password(password))
         user.save(using=self._db)
         return user
     
@@ -108,10 +110,11 @@ class Animal(models.Model):
     weight = models.IntegerField()
     shelter = models.ForeignKey(Shelter, on_delete=models.CASCADE)
     days_in_shelter = models.IntegerField()
-    days_left = models.IntegerField()
+    days_left = models.DateField()
     description = models.CharField(max_length=250) 
     image = models.ImageField(null = True, blank = True, upload_to="images/")
     created_at = models.DateTimeField(auto_now_add=True)
+    favorites = models.ManyToManyField(User, default=None, blank=True )
 
     def __str__(self):
         return self.name

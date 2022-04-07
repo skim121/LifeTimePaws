@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm 
 from django.contrib.auth import authenticate
 from .models import User
+from django.contrib.auth.hashers import make_password
 
 # class SignUpForm(UserCreationForm): 
 #     email = forms.EmailField(max_length = 250, help_text = "Required")
@@ -43,6 +44,7 @@ class SignUpForm(forms.ModelForm):
         password2 = cleaned_data.get("password2")
         if password is not None and password != password2: 
             self.add_error("password2", "Passwords must match")
+        # new = make_password(password)
         return cleaned_data
 
 

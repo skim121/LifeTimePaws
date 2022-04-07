@@ -3,7 +3,17 @@
 
 {% block content %}
 
-<h1>{{ fullname }}'s list:</h1>
+<h1>{{ fullname }}'s Watching List:</h1>
+
+{% for animal in fav %}
+<h3>Name: {{animal.name}}</h3>
+<h3>Age: {{animal.age}}</h3>
+<img src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_150,w_150/{{animal.image}}" alt="{{animal.name}}">
+<a href="{% url 'paws_detail' animal.pk %}">See More</a>
+<a href="{% url 'favorite_add' animal.id %}">Remove from favorites</a>
+
+{% endfor %} 
+
 
 {% endblock %}
 

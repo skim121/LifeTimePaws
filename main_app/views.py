@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views import View 
 from django.views.generic import DetailView
 from django.views.generic.base import TemplateView
@@ -133,8 +133,7 @@ class CaseInsensitiveModelBackend(ModelBackend):
 def signup_view(request, backend='django.contrib.auth.backends.ModelBackend'):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
-        if form.is_valid(): 
-            print(form)
+        if form.is_valid():
             user = form.save()
             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
             print ('Hi', user.fullname)
@@ -175,6 +174,18 @@ def login_view(request):
         form = LogInForm()
         return render(request, 'login.html', {'form': form})    
 
+@login_required
 def profile(request, fullname):
     user = User.objects.get(fullname = fullname)
-    return render(request, 'profile.html', {'fullname': fullname})
+    fav_list = Animal.objects.filter(favorites=request.user)
+    return render(request, 'profile.html', {'fullname': fullname, 'fav':fav_list})
+
+@login_required
+def favorite_add(request, id): 
+    animal = get_object_or_404(Animal, id=id)
+    if animal.favorites.filter(id=request.user.id).exists():
+        animal.favorites.remove(request.user)
+    else:
+        animal.favorites.add(request.user)
+    return HttpResponseRedirect('/user/'+str(request.user.fullname))
+
