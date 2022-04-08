@@ -9,6 +9,7 @@
 <h3>Name: {{animal.name}}</h3>
 <h3>Age: {{animal.age}}</h3>
 <img src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_150,w_150/{{animal.image}}" alt="{{animal.name}}">
+</br>
 <a href="{% url 'paws_detail' animal.pk %}">See More</a>
 <a href="{% url 'favorite_add' animal.id %}">Remove from favorites</a>
 
