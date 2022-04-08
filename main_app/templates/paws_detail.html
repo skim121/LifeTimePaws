@@ -4,15 +4,16 @@
 
 <div>
     <h1>More about {{animal.name}}</h1>
-    <img src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_150,w_150/{{animal.image}}" alt="{{animal.name}}">
-    <h3> breed: {{animal.breed}} </h3>
-    <h3> age: {{animal.age}} </h3>
-    <h3> sex: {{animal.sex}} </h3>
-    <h3> weight: {{animal.weight}} </h3>
-    <h3> description: {{animal.description}}</h3>
+    <img src = "https://res.cloudinary.com/skim121/image/upload/c_fill,g_face,h_350,w_350/{{animal.image}}" alt="{{animal.name}}">
+    <h3> Breed: {{animal.breed}} </h3>
+    <h3> Age: {{animal.age}} </h3>
+    <h3> Sex: {{animal.sex}} </h3>
+    <h3> Weight: {{animal.weight}} </h3>
+    <h3> Description: {{animal.description}}</h3>
     <h3> Current shelter: <a href= "/shelter/{{animal.shelter.pk}}" > {{animal.shelter}} </a></h3>
-    <h3> days in shelter: {{animal.days_in_shelter}} </h3>
-    <h3> days left in shelter: {{animal.days_left}} </h3>
+    <h3> Days in shelter: {{animal.days_in_shelter}} </h3>
+    <h3> Due date: {{animal.due_date}} </h3>
+    <h3> Number of users watching: {{animal.favorites.count}} </h3>
 
     {% if request.user.shelter_admin %}
     <a href="{% url 'animal_update' animal.pk %}">Edit</a>
@@ -20,7 +21,11 @@
     {% endif %}
 
     {% if request.user.is_authenticated %}
-    <a href="{% url 'favorite_add' animal.id %}">Add to favorites</a>
+        {% if word %}
+        <a href="{% url 'favorite_add' animal.id %}">Remove from favorites</a>
+        {% else %}
+        <a href="{% url 'favorite_add' animal.id %}">Add to favorites</a>
+        {% endif %}
     {% else %}
     <a href="/signup">Add to favorites</a>
     {% endif %}
