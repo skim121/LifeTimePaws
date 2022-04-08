@@ -13,6 +13,7 @@
     <h3> Current shelter: <a href= "/shelter/{{animal.shelter.pk}}" > {{animal.shelter}} </a></h3>
     <h3> Days in shelter: {{animal.days_in_shelter}} </h3>
     <h3> Due date: {{animal.due_date}} </h3>
+    <h3> Number of users watching: {{animal.favorites.count}} </h3>
 
     {% if request.user.shelter_admin %}
     <a href="{% url 'animal_update' animal.pk %}">Edit</a>
@@ -20,7 +21,11 @@
     {% endif %}
 
     {% if request.user.is_authenticated %}
-    <a href="{% url 'favorite_add' animal.id %}">Add to favorites</a>
+        {% if word %}
+        <a href="{% url 'favorite_add' animal.id %}">Remove from favorites</a>
+        {% else %}
+        <a href="{% url 'favorite_add' animal.id %}">Add to favorites</a>
+        {% endif %}
     {% else %}
     <a href="/signup">Add to favorites</a>
     {% endif %}
