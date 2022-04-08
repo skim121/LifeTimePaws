@@ -18,7 +18,7 @@
     <nav>
     {% if user.is_authenticated %}
     <a href="/admin">Admin</a>
-    <a href="{% url 'profile' user.fullname %}">Welcome, {{ user.fullname }}!</a>
+    <a href="{% url 'profile' user.id %}">Welcome, {{ user.fullname }}!</a>
     <a href="/logout">Logout</a>
     {% else %}
     <a href="/login">Login</a>
@@ -27,10 +27,12 @@
     <a href="/">Home</a>
     <a href="/dogs">Dogs</a>
     <a href="/cats">Cats</a>
-    <a href="/paws/new">Add animals</a>
     <a href="/shelters">Shelters</a>
-    <a href="/shelter/new"> Add Shelter </a>
 
+    {% if request.user.shelter_admin %}
+    <a href="/paws/new">Add animals</a>
+    <a href="/shelter/new"> Add Shelter </a>
+    {% endif %}
 
     </nav>
 

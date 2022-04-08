@@ -136,8 +136,8 @@ def signup_view(request, backend='django.contrib.auth.backends.ModelBackend'):
         if form.is_valid():
             user = form.save()
             login(request, user, backend='django.contrib.auth.backends.ModelBackend')
-            print ('Hi', user.fullname)
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect('/login/') 
+            #login function not working therefore have to redirect user to login again after signing up 
         else:
             return render(request, 'signup.html', {'form': form})
 
@@ -175,10 +175,10 @@ def login_view(request):
         return render(request, 'login.html', {'form': form})    
 
 @login_required
-def profile(request, fullname):
-    user = User.objects.get(fullname = fullname)
+def profile(request, id):
+    # user = User.objects.get(id=id)
     fav_list = Animal.objects.filter(favorites=request.user)
-    return render(request, 'profile.html', {'fullname': fullname, 'fav':fav_list})
+    return render(request, 'profile.html', {'fav':fav_list, 'id' : request.user.id})
 
 @login_required
 def favorite_add(request, id): 
@@ -187,5 +187,5 @@ def favorite_add(request, id):
         animal.favorites.remove(request.user)
     else:
         animal.favorites.add(request.user)
-    return HttpResponseRedirect('/user/'+str(request.user.fullname))
+    return HttpResponseRedirect('/user/'+str(request.user.id))
 

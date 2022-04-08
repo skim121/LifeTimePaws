@@ -53,7 +53,7 @@ class MyUserManager(BaseUserManager):
 class User(AbstractBaseUser): 
     email = models.EmailField(verbose_name = "email", max_length=250, unique = True) 
     fullname = models.CharField(max_length = 250)
-    shelter_admin = models.BooleanField(default=False)
+    shelter_admin = models.BooleanField(default=False, blank=True)
     is_admin = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)

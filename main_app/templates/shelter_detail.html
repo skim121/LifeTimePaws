@@ -9,7 +9,9 @@
     <a href="{{shelter.website}}">Click here to visit their website</a>
 </div>
 
+{% if request.user.shelter_admin %}
 <a href="{% url 'shelter_update' shelter.pk %}">Edit</a>
 <a href="{% url 'shelter_delete' shelter.pk %}">Delete</a>
+{% endif %}
 
 {% endblock %}
