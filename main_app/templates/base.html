@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{% static 'styles/styles.css'%}"/>
     <script src="{% static 'scripts/app.js' %}" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+
 
     <title>
         {% block title %}
@@ -14,29 +17,52 @@
     </title>
 </head>
 
-<body>
-    <nav>
-    {% if user.is_authenticated %}
-    <a href="/admin">Admin</a>
-    <a href="{% url 'profile' user.id %}">Welcome, {{ user.fullname }}!</a>
-    <a href="/logout">Logout</a>
-    {% else %}
-    <a href="/login">Login</a>
-    <a href="/signup">Sign Up</a>
-    {% endif %}
-    <a href="/">Home</a>
-    <a href="/dogs">Dogs</a>
-    <a href="/cats">Cats</a>
-    <a href="/shelters">Shelters</a>
+<body class="body">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-around py-3 mb-4 border-bottom">
+          <a href="/" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            <h3>LifeTimePaws</h3>
+          </a>
+    
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            
+            <li><a href="/" class="nav-link px-2 link-secondary">Home</a></li>
+            <li><a href="/dogs" class="nav-link px-2 link-dark">Dogs</a></li>
+            <li><a href="/cats" class="nav-link px-2 link-dark">Cats</a></li>
+            <li><a href="/shelters" class="nav-link px-2 link-dark">Shelters</a></li>
+          </ul>
+    
+          <div class="col-md-3 text-end dropdown">
+            {% if user.is_authenticated %}
+            <a href="#" class="dropdown-toggle text-decoration-none link-dark" id="dropdownuser" data-bs-toggle="dropdown" aria-expanded="false">
+           Welcome, {{ user.fullname}}
+            </a>
+            <ul class="dropdown-menu text-small shadow" aria-labelledby="dropdownuser" style="">
 
-    {% if request.user.shelter_admin %}
-    <a href="/paws/new">Add animals</a>
-    <a href="/shelter/new"> Add Shelter </a>
-    {% endif %}
-
-    </nav>
+                <li><a class="dropdown-item" href="{% url 'profile' user.id %}">Profile</a></li>
+                {% if request.user.shelter_admin %}
+                <li><a href="/paws/new" class="dropdown-item">Add Animals</a></li>
+                <li><a href="/shelter/new" class="dropdown-item">Add Shelter</a></li>
+                {% endif %}
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="/logout">Sign out</a></li>
+              </ul>
+            {% else %}
+            <a href="/login">
+            <button type="button" class="btn btn-outline-primary me-2">Login</button>
+            </a>
+            <a href="/signup">
+            <button type="button" class="btn btn-primary">Sign-up</button>
+            </a>
+            {% endif %}
+          </div>
+        
+        </header>
+  
 
     {% block content %}
     {% endblock %}
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
 </body>
 </html>

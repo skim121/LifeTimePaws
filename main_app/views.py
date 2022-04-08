@@ -39,6 +39,7 @@ class CatList(TemplateView):
         context["paws"] = Animal.objects.filter(type='cat')
         return context
 
+@method_decorator(login_required, name='dispatch')
 class AnimalCreate(CreateView):
     model = Animal
     fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'days_in_shelter', 'due_date', 'description', 'image']
@@ -57,6 +58,7 @@ class AnimalDetail(DetailView):
         print(word)
         return animal
 
+@method_decorator(login_required, name='dispatch')
 class AnimalUpdate(UpdateView): 
     model = Animal
     fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'days_in_shelter', 'due_date', 'description', 'image']
@@ -64,6 +66,7 @@ class AnimalUpdate(UpdateView):
     def get_success_url(self): 
         return reverse('paws_detail', kwargs={'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class AnimalDelete(DeleteView): 
     model = Animal
     template_name = "animal_delete_confirm.html"
@@ -88,7 +91,7 @@ class ShelterCreate(CreateView):
     def get_success_url(self): 
         return reverse('shelter_detail', kwargs={'pk': self.object.pk})
 
-
+@method_decorator(login_required, name='dispatch')
 class ShelterUpdate(UpdateView): 
     model = Shelter
     fields = ['name', 'location', 'kill', 'website', 'image']
@@ -96,6 +99,7 @@ class ShelterUpdate(UpdateView):
     def get_success_url(self): 
         return reverse('shelter_detail', kwargs={'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class ShelterDelete(DeleteView): 
     model = Shelter
     template_name = "shelter_delete_confirm.html"
