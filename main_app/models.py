@@ -86,6 +86,7 @@ class Shelter(models.Model):
     kill = models.CharField(max_length=10, choices = KILL_CHOICES)
     website = models.CharField(max_length=250)
     image = models.ImageField(null = True, blank = True, upload_to="images/")
+    
 
     def __str__(self):
         return self.name
@@ -110,7 +111,7 @@ class Animal(models.Model):
     weight = models.IntegerField()
     shelter = models.ForeignKey(Shelter, on_delete=models.CASCADE)
     days_in_shelter = models.IntegerField()
-    days_left = models.DateField()
+    due_date = models.DateField()
     description = models.CharField(max_length=250) 
     image = models.ImageField(null = True, blank = True, upload_to="images/")
     created_at = models.DateTimeField(auto_now_add=True)

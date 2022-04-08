@@ -40,7 +40,7 @@ class CatList(TemplateView):
 
 class AnimalCreate(CreateView):
     model = Animal
-    fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'days_in_shelter', 'days_left', 'description', 'image']
+    fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'days_in_shelter', 'due_date', 'description', 'image']
     template_name = 'animal_create.html'
     # success_url = "/dogs/"
     def get_success_url(self): 
@@ -52,7 +52,7 @@ class AnimalDetail(DetailView):
 
 class AnimalUpdate(UpdateView): 
     model = Animal
-    fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'days_in_shelter', 'days_left', 'description', 'image']
+    fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'days_in_shelter', 'due_date', 'description', 'image']
     template_name = "animal_update.html"
     def get_success_url(self): 
         return reverse('paws_detail', kwargs={'pk': self.object.pk})
@@ -188,4 +188,5 @@ def favorite_add(request, id):
     else:
         animal.favorites.add(request.user)
     return HttpResponseRedirect('/user/'+str(request.user.id))
+
 

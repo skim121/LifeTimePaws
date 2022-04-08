@@ -3,8 +3,9 @@
 {% block content %}
     <h1>Shelters Participating: </h1>
     {% for shelter in shelters %}
-    <h3>Name: {{shelter.name}}</h3>
-    <h3>Location: {{shelter.location}}</h3>
-    <a href="{% url 'shelter_detail' shelter.pk %}">See More</a>
+    <a href="{% url 'shelter_detail' shelter.pk %}">
+        <h3>Name: {{shelter.name}}</h3>
+        <h3>Location: {{shelter.location}}</h3>
+    </a>
     {% endfor %}
 {% endblock %}
