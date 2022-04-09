@@ -5,5 +5,18 @@ LifeTimePaws
 {% endblock %}
 
 {% block content %}
-    <h1> Home Page </h1>
+    <div class="container-fluid mt-4" id="maincontainer">
+        <div class="row" id="mainrow">
+        <div class="col-lg-6 align-self-center justify-content-center mt-3 mb-5 pl-5">
+            <h4 class="taglinesub">Their time is running out</h4>
+            <h1 class="tagline"> Put a <span class="unforkettable">paws</span> on it</h1>
+            <h4> Urgent shelter needs </h4>
+            <a href="/signup" class="btn btn-outline-primary link-dark text-decoration-none">Sign Up</a>
+        </div>
+        <div class="col-lg-6 mt-4 mb-4" id="maincol">
+        <img class="coverimg w-50" src="/static/images/cat.jpg"/>
+        </div>
+    </div>
+    </div>
+
 {% endblock %}

@@ -11,6 +11,7 @@ class SignUpForm(UserCreationForm):
     class Meta: 
         model = User
         fields = ('email', 'fullname', 'password1', 'password2', 'shelter_admin' )
+        labels = {'shelter_admin': "Click here if you are a shelter employee",}
 
     def clean_email(self):
         email = self.cleaned_data['email'].lower() #greenemail matches html tag name 
