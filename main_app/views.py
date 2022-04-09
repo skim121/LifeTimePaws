@@ -13,7 +13,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.backends import ModelBackend
 from django.utils.decorators import method_decorator 
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LogInForm
+from .forms import SignUpForm, LogInForm, AnimalCreationForm
+from bootstrap_datepicker_plus.widgets import DatePickerInput
 
 User = get_user_model()
 
@@ -42,11 +43,12 @@ class CatList(TemplateView):
 @method_decorator(login_required, name='dispatch')
 class AnimalCreate(CreateView):
     model = Animal
-    fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'days_in_shelter', 'due_date', 'description', 'image']
+    form_class = AnimalCreationForm 
+    # fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'days_in_shelter', 'due_date', 'description', 'image']
     template_name = 'animal_create.html'
     def get_success_url(self): 
         return reverse('paws_detail', kwargs={'pk': self.object.pk})
-    
+
 class AnimalDetail(DetailView):
     model = Animal
     template_name = "paws_detail.html"
@@ -120,29 +122,6 @@ class CaseInsensitiveModelBackend(ModelBackend):
             if user.check_password(password) and self.user_can_authenticate(user): 
                 return user
 
-# def signup_view(request, *args, **kwargs): 
-#     user = request.user
-#     if user.is_authenticated:
-#         return HttpResponse (f"You are already authenticated")
-#     context = {}
-
-#     if request.method == 'POST':
-#         form = SignUpForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             email = form.cleaned_data.get('email').lower()
-#             raw_password = form.cleaned_data.get('password1')
-#             user = authenticate(email= email, password = raw_password)
-#             login(request, user)
-#             destination = kwargs.get("next")
-#             if destination: 
-#                 return redirect (destination)
-#             return redirect ('home')
-#         else: 
-#             context['signup_form'] = form
-
-#     return render(request, 'signup.html', context) 
-
 def signup_view(request, backend='django.contrib.auth.backends.ModelBackend'):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -169,8 +148,6 @@ def login_view(request):
         if form.is_valid():
             e = form.cleaned_data.get('email')
             p = form.cleaned_data.get('password')
-            # e = request.GET.get('email','')
-            # p = request.GET.get('password','')
             user = authenticate(email = e, password = p)
             if user is not None:
                 if user.is_active:
