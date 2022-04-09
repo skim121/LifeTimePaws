@@ -13,6 +13,7 @@ psycopg2 = "*"
 whitenoise = "*"
 django-cloudinary-storage = "*"
 django-crispy-forms = "*"
+crispy-bootstrap5 = "*"
 
 [dev-packages]
 
