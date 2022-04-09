@@ -110,7 +110,7 @@ class Animal(models.Model):
     sex = models.CharField(max_length=10, choices = SEX_CHOICES)
     weight = models.IntegerField()
     shelter = models.ForeignKey(Shelter, on_delete=models.CASCADE)
-    days_in_shelter = models.IntegerField()
+    day_entered = models.DateField()
     due_date = models.DateField()
     description = models.CharField(max_length=250) 
     image = models.ImageField(null = True, blank = True, upload_to="images/")
