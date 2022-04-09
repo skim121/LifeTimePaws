@@ -5,19 +5,46 @@ LifeTimePaws
 {% endblock %}
 
 {% block content %}
-    <div class="container-fluid mt-4" id="maincontainer">
-        <div class="row px-0" id="mainrow">
-        <div class="col-lg-6 align-self-center justify-content-center mt-3 mb-5 pl-5">
-            <h4 class="taglinesub">Their time is running out</h4>
-            <h1 class="tagline"> You can <span class="unforkettable">paws</span> it</h1>
-            <h4> Urgent shelter needs </h4>
-            <a href="/signup" class="btn btn-outline-primary link-dark text-decoration-none">Sign Up</a>
-        </div>
-        <div class="col-lg-6 mt-4 mb-4" id="maincol">
-        <img class="coverimg w-100 m-0 p-0" src="/static/images/dog.webp"/>
-        </div>
+    <div class="container-fluid px-0 mb-4" id="maincontainer">
+            <div class="background-image"  style="background-image:url('./static/images/dogmain.png'); width:100%; height:100%; background-size:cover; background-repeat:no-repeat; text-align:center; padding-top:15%; padding-bottom:15%; padding-left:20%; padding-right:20%; box-shadow: 0px 5px 12px #a1a0a0"> 
+                <div>
+                <h4 class="taglinesub">Their time is running out.</h4>
+                <h4 class="taglinesub">You can paws their countdown.</h4>
+                </br>
+                <a href="/signup" class="btn btn-primary link-dark text-decoration-none" style=" padding: 1% 7%; font-weight: bold;">Learn More</a>
+                </div>
+            </div>  
+        
     </div>
-    </div>
+</br>
+
+    <div class="container">
+        <div class="row">
+          <div class="col-sm" id="stats">
+            <h4 class="highlight-stats">6.3 million</h4>
+            <p class="statstext">
+                animals enter shelter every year </br>
+                <span class="source">(Source ASPCA)</span>
+             </p> 
+          </div>
+          <div class="col-sm" id="stats">
+            <h4 class="highlight-stats">920,000</h4>
+            <p class="statstext">
+                shelter animals get euthanized every year </br>
+                <span class="source">(Source ASPCA)</span>
+             </p> 
+          </div>
+          <div class="col-sm" id="stats">
+            <h4 class="highlight-stats">Less than 10%</h4>
+            <p class="statstext">
+                of euthanized animals had life-threatening conditions </br>
+                <span class="source">(Source SPOTs)</span>
+             </p> 
+          </div>
+        </div>
+      </div>
+    
+
 
 
     {% for animal in paws %}
@@ -29,3 +56,7 @@ LifeTimePaws
     {% endfor %}
 
 {% endblock %}
+
+<!-- HTML !-->
+<button class="button-81" role="button">Button 81</button>
+

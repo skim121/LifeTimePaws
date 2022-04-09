@@ -4,6 +4,7 @@
     --yellow: #E5BF76 ; 
     --orange: #D6925E ; 
     --green: #537B7A ; 
+    --gray: #727272;
 }
 
 /* var(--white) */
@@ -12,8 +13,10 @@
 }
 
 .btn-primary {
+    color: white !important;
     background-color: #537B7A !important;
     border: 2px solid #537B7A !important;
+    border-radius: 1.5rem !important;
 }
 
 .btn-primary:hover{
@@ -25,6 +28,7 @@
     color: #537B7A !important;
     border:2px solid #537B7A !important;
     background-color: transparent !important;
+    border-radius: 1.5rem !important;
 }
 
 .btn-outline-primary:hover { 
@@ -36,3 +40,44 @@
 /* #mainrow{
     background-color: var(--white);
 } */
+
+#maincontainer{
+   position: relative; 
+   text-align: center; 
+}
+
+.background-image{
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.taglinesub{ 
+    color: white;
+    font-weight: bold;
+    font-size: 52px;
+}
+
+#stats{
+    margin: 0 3%; 
+    padding: 3%;
+    /* border: 2px solid black;  */
+}
+
+.highlight-stats{ 
+    color:var(--orange);
+    font-weight: bold;
+    font-size: 36px;
+}
+
+.statstext{
+    font-weight: bold;
+    font-size: 24px;
+    color:var(--gray);
+
+}
+
+.source{
+    font-size: 18px; 
+    font-weight: normal;
+    color: var(--gray);
+}
