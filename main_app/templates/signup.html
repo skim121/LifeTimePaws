@@ -1,13 +1,20 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
-   <h1>Sign up</h1>
+<div class="d-flex flex-row justify-content-center align-items-center">
+
+    
+   <div class="w-50 p-5">
+    <h1> Sign Up </h1>
+   </div>
+   <div class="w-40 p-5">
    <form action="" method="post" id="registerform">
        {% csrf_token %}
        <div>
-           {{ form.as_p}}
+           {{ form |crispy }}
            <!-- <input type="email" name = "email" placeholder="Email address">
            <input type="text" name ="fullname" placeholder="Fullname">
            <input type="password" name="password1" placeholder="Password" required>
@@ -30,8 +37,10 @@
         {% if signup_view.non_field_errors %}
         <p>{{signup_view.non_field_errors</p>
         {% endif %} 
-        <input type="submit" value = "Submit">
+        <button type="submit" class="btn btn-primary">Sign up</button>
    </form>
+    </div>
+</div>
 
    <!-- <button type="submit" form = "registerform" value="Submit">Sign Up</button> -->
 

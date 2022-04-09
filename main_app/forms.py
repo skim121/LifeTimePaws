@@ -5,8 +5,8 @@ from .models import User
 from django.contrib.auth.hashers import make_password
 
 class SignUpForm(UserCreationForm): 
-    email = forms.EmailField(max_length = 250, help_text = "*Required")
-    fullname = forms.CharField(max_length=250, help_text = "*Required")
+    email = forms.EmailField(max_length = 250)
+    fullname = forms.CharField(max_length=250)
 
     class Meta: 
         model = User
