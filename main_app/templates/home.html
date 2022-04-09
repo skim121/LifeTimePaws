@@ -6,17 +6,26 @@ LifeTimePaws
 
 {% block content %}
     <div class="container-fluid mt-4" id="maincontainer">
-        <div class="row" id="mainrow">
+        <div class="row px-0" id="mainrow">
         <div class="col-lg-6 align-self-center justify-content-center mt-3 mb-5 pl-5">
             <h4 class="taglinesub">Their time is running out</h4>
-            <h1 class="tagline"> Put a <span class="unforkettable">paws</span> on it</h1>
+            <h1 class="tagline"> You can <span class="unforkettable">paws</span> it</h1>
             <h4> Urgent shelter needs </h4>
             <a href="/signup" class="btn btn-outline-primary link-dark text-decoration-none">Sign Up</a>
         </div>
         <div class="col-lg-6 mt-4 mb-4" id="maincol">
-        <img class="coverimg w-50" src="/static/images/cat.jpg"/>
+        <img class="coverimg w-100 m-0 p-0" src="/static/images/dog.webp"/>
         </div>
     </div>
     </div>
+
+
+    {% for animal in paws %}
+    <a href="{% url 'paws_detail' animal.pk %}">
+    <img src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_150,w_150/{{animal.image}}" alt="{{animal.name}}">
+    <h3>Name: {{animal.name}}</h3>
+    <h3>Due date: {{animal.due_date}}</h3>
+    </a>
+    {% endfor %}
 
 {% endblock %}
