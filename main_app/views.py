@@ -44,7 +44,6 @@ class CatList(TemplateView):
 class AnimalCreate(CreateView):
     model = Animal
     form_class = AnimalCreationForm 
-    # fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'days_in_shelter', 'due_date', 'description', 'image']
     template_name = 'animal_create.html'
     def get_success_url(self): 
         return reverse('paws_detail', kwargs={'pk': self.object.pk})
@@ -63,7 +62,7 @@ class AnimalDetail(DetailView):
 @method_decorator(login_required, name='dispatch')
 class AnimalUpdate(UpdateView): 
     model = Animal
-    fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'days_in_shelter', 'due_date', 'description', 'image']
+    fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'day_entered', 'due_date', 'description', 'image']
     template_name = "animal_update.html"
     def get_success_url(self): 
         return reverse('paws_detail', kwargs={'pk': self.object.pk})

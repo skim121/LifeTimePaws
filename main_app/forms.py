@@ -44,8 +44,9 @@ class AnimalCreationForm(forms.ModelForm):
 
     class Meta: 
         model = Animal
-        fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'days_in_shelter', 'due_date', 'description', 'image']
+        fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'day_entered', 'due_date', 'description', 'image']
         widgets = {
+            'day_entered': DateInput(),
             'due_date': DateInput(),
         }
      
