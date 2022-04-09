@@ -14,7 +14,6 @@ from django.contrib.auth.backends import ModelBackend
 from django.utils.decorators import method_decorator 
 from django.shortcuts import render, redirect
 from .forms import SignUpForm, LogInForm, AnimalCreationForm
-from bootstrap_datepicker_plus.widgets import DatePickerInput
 
 User = get_user_model()
 
