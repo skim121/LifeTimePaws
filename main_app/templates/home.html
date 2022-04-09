@@ -11,7 +11,7 @@ LifeTimePaws
                 <h4 class="taglinesub">Their time is running out.</h4>
                 <h4 class="taglinesub">You can paws their countdown.</h4>
                 </br>
-                <a href="/signup" class="btn btn-primary link-dark text-decoration-none" style=" padding: 1% 7%; font-weight: bold;">Learn More</a>
+                <a href="/signup" class="btn btn-primary link-dark text-decoration-none" style=" padding: 1% 7%;">Learn More</a>
                 </div>
             </div>  
         
@@ -24,29 +24,36 @@ LifeTimePaws
             <h4 class="highlight-stats">6.3 million</h4>
             <p class="statstext">
                 animals enter shelter every year </br>
-                <span class="source">(Source ASPCA)</span>
+                <span class="source">(Source: ASPCA)</span>
              </p> 
           </div>
           <div class="col-sm" id="stats">
             <h4 class="highlight-stats">920,000</h4>
             <p class="statstext">
                 shelter animals get euthanized every year </br>
-                <span class="source">(Source ASPCA)</span>
+                <span class="source">(Source: ASPCA)</span>
              </p> 
           </div>
           <div class="col-sm" id="stats">
             <h4 class="highlight-stats">Less than 10%</h4>
             <p class="statstext">
                 of euthanized animals had life-threatening conditions </br>
-                <span class="source">(Source SPOTs)</span>
+                <span class="source">(Source: SPOTs)</span>
              </p> 
           </div>
         </div>
       </div>
     
 
+      <h2 class="meet">Meet your potential lifetime companion</h2>
 
-
+      <div class="row">
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+      </div>
+      
     {% for animal in paws %}
     <a href="{% url 'paws_detail' animal.pk %}">
     <img src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_150,w_150/{{animal.image}}" alt="{{animal.name}}">

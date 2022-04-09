@@ -1,7 +1,7 @@
 from django import forms 
 from django.contrib.auth.forms import UserCreationForm 
 from django.contrib.auth import authenticate
-from .models import User
+from .models import User, Animal, Shelter
 from django.contrib.auth.hashers import make_password
 
 class SignUpForm(UserCreationForm): 
@@ -22,32 +22,6 @@ class SignUpForm(UserCreationForm):
             return email
         raise forms.ValidationError(f"Email {email} is already in use")
 
-# class SignUpForm(forms.ModelForm): 
-#     password = forms.CharField(label = 'Password', widget=forms.PasswordInput)
-#     password2 = forms.CharField(label='Confirm Password', widget=forms.PasswordInput)
-
-#     class Meta: 
-#         model = User
-#         fields = ['email', 'fullname', 'shelter_admin', 'password', 'password2']
-    
-#     def clean_email(self):
-#         #verify email is available 
-#         email = self.cleaned_data.get('email').lower()
-#         emailsearch = User.objects.filter(email=email)
-#         if emailsearch.exists(): 
-#             raise forms.ValidationError("Email is already in use")
-#         return email 
-    
-#     def clean(self):
-#         #Verify passwords match
-#         cleaned_data = super().clean()
-#         password = cleaned_data.get("password")
-#         password2 = cleaned_data.get("password2")
-#         if password is not None and password != password2: 
-#             self.add_error("password2", "Passwords must match")
-#         # new = make_password(password)
-#         return cleaned_data
-
 
 class LogInForm(forms.ModelForm): 
     password = forms.CharField(label = 'Password', widget=forms.PasswordInput)
@@ -62,3 +36,18 @@ class LogInForm(forms.ModelForm):
             password = self.cleaned_data.get('password')
             if not authenticate(email=email, password=password):
                 raise forms.ValidationError("Email or password not correct")
+
+class DateInput(forms.DateInput): 
+    input_type='date'
+
+class AnimalCreationForm(forms.ModelForm): 
+
+    class Meta: 
+        model = Animal
+        fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'days_in_shelter', 'due_date', 'description', 'image']
+        widgets = {
+            'due_date': DateInput(),
+        }
+     
+    
+   
