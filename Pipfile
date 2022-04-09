@@ -12,6 +12,7 @@ dj-database-url = "*"
 psycopg2 = "*"
 whitenoise = "*"
 django-cloudinary-storage = "*"
+django-crispy-forms = "*"
 
 [dev-packages]
 
