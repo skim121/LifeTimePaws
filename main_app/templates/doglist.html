@@ -1,16 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <form>
-    <div>
-        <!-- searches for the name of the cat -->
-        <input type="text" name="name" placeholder="Search by name, sex, or breed"/>
-        <input type="submit" value="Search"/>
-    </div>
-    <a href="{% url 'dog_list' %}">Clear Search</a>
-</form> 
-
-    <h1>{{header}}</h1>
+<div class="background-image-dog"  style="background-image:url('../static/images/ad1.png'); height: 400px; background-size:cover; background-repeat:no-repeat; text-align:center; position:relative;">
+    <form style="position: absolute; top:50%;transform: translateY(-50%); width: 80%; margin-left:10%;">
+            <h1 class="headertext">{{header}}</h1>
+            <input type="text" name="name" placeholder="Search by name, sex, or breed" class="searchbar"/>
+            <button type="submit" class="btn btn-primary" id="listsearchbtn"> Search </button>
+    </br>
+        <a href="{% url 'dog_list' %}" style="color:white;">Clear Search</a>     
+    </form> 
+</div>
+    
     {% for dog in dogs %}
     <h3>Name: {{dog.name}}</h3>
     <h3>Age: {{dog.age}}</h3>

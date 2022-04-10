@@ -41,7 +41,7 @@ class DogList(TemplateView):
             context["dogs"] = Animal.objects.filter(type="dog", name__icontains=name)
             # context["dogs"] = Animal.objects.filter(name_icontains=breed)
             # context["dogs"] = Animal.objects.filter(sex=sex)
-            context["header"]=f"Searching for {name}"
+            context["header"]=f"Search results for {name}..."
         else: 
             context["dogs"] = Animal.objects.filter(type='dog')
             context["header"] = "Available Dogs"

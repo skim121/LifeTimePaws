@@ -59,11 +59,6 @@
    text-align: center; 
 }
 
-.background-image{
-    background-size: cover;
-    background-repeat: no-repeat;
-}
-
 .taglinesub{ 
     color: white;
     font-weight: bold;
@@ -202,4 +197,26 @@
 
 .addcontainer{
     padding: 3%; 
+}
+
+.headertext{
+    color: white !important; 
+    font-family: 'Poppins', sans-serif !important;
+    justify-self: center !important;
+    font-size: 50px;
+}
+
+.searchbar{
+    width: 75%;
+    height: 50px;
+    border-radius: 1.5rem;
+    padding: 1%; 
+    box-shadow: none; 
+    border: none;
+}
+
+#listsearchbtn{
+    height: 50px !important;
+    border-radius: 1.5rem !important; 
+    padding: 0 3% !important;
 }
