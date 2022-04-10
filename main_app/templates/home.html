@@ -5,6 +5,7 @@ LifeTimePaws
 {% endblock %}
 
 {% block content %}
+
     <div class="container-fluid px-0 mb-4" id="maincontainer">
             <div class="background-image"  style="background-image:url('./static/images/dogmain.png'); width:100%; height:100%; background-size:cover; background-repeat:no-repeat; text-align:center; padding-top:15%; padding-bottom:15%; padding-left:20%; padding-right:20%; box-shadow: 0px 5px 12px #a1a0a0"> 
                 <div>
@@ -42,28 +43,40 @@ LifeTimePaws
              </p> 
           </div>
         </div>
-      </div>
+    </div>
     
 
-      <h2 class="meet">Meet your potential lifetime companion</h2>
+    <h2 class="meet">Meet your potential lifetime companion (Top 5 most urgent need)</h2>
 
-      <div class="row">
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-      </div>
-      
-    {% for animal in paws %}
-    <a href="{% url 'paws_detail' animal.pk %}">
-    <img src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_150,w_150/{{animal.image}}" alt="{{animal.name}}">
-    <h3>Name: {{animal.name}}</h3>
-    <h3>Due date: {{animal.due_date}}</h3>
-    </a>
-    {% endfor %}
+    <div class="row" id="homepaws">
+        {% for animal in paws %}
+        <div class="col-md-2 justify-content-center" id="pawscard">
+        <a href="{% url 'paws_detail' animal.pk %}" class="text-decoration-none" id="clickpaws" >
+        <div class="card">
+            <img class="card-img-top" src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_250,w_250/{{animal.image}}" alt="{{animal.name}} image">
+            <div class="card-body">
+                <h3 class="card-title">{{animal.name}}</h3>
+                <p class="card-text">Due date: </br>
+                    {{animal.due_date}}</p>
+            </div>
+        </div>
+        </a>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="howdiv">
+        <h1 class="how"> How you can help </h1>
+    </br>
+</br>
+</br>
+</br>
+</br>
+
+
+
+    </div>
 
 {% endblock %}
 
-<!-- HTML !-->
-<button class="button-81" role="button">Button 81</button>
 

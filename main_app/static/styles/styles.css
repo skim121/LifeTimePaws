@@ -10,6 +10,15 @@
 /* var(--white) */
 .body{
     background-color: #F1E6DE;
+    /* font-family: 'Noto Sans', sans-serif !important; */
+    font-family: 'Poppins', sans-serif !important;
+}
+
+#footer{
+    text-align: center !important;
+    color: var(--gray) !important; 
+    padding: 1% 0; 
+    font-size: 12px;
 }
 
 .btn-primary {
@@ -79,9 +88,47 @@
 .source{
     font-size: 18px; 
     font-weight: normal;
+    font-style: italic;
     color: var(--gray);
 }
 
-.meet{
-    color: white;
+.meet, .how{
+    color: var(--white);
+    margin-top: 1%;
+    padding-left: 5%;
+    font-size: 36px;
+    font-weight: bold !important;
+    text-align: center;
+}
+
+#pawscard{
+    /* border: 2px solid black; */
+    padding: 3%;
+    justify-content: center;
+    align-items: center;
+}
+
+#homepaws{
+    justify-content: center;
+    /* padding: 0 5%;  */
+}
+
+#clickpaws{
+    color: var(--gray) !important;
+    text-align: center;
+}
+
+.card{
+    /* background-color: transparent !important; */
+    border: none !important;
+    border-radius: 1.5rem !important;
+    /* width: 80%; */
+}
+
+.card-img-top{
+    border-radius: 1.5rem 1.5rem 0 0 !important; 
+}
+
+.howdiv{
+    background-color: var(--yellow) !important;
 }
