@@ -18,8 +18,8 @@ import psycopg2
 import dj_database_url
 
 # load_dotenv()
-# DATABASE_URL = os.environ['DATABASE_URL']
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 # If the host name starts with 'live', DJANGO_HOST = "production"
 if socket.gethostname().startswith('live'):
@@ -39,9 +39,6 @@ else:
     STATIC_URL = '/static/'
 
 
-
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.0/howto/deployment/checklist/
 
@@ -52,7 +49,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # DEBUG = True
 # Comment this out bc logic is above
 
-# ALLOWED_HOSTS = ['lifetimepaws.herokuapp.com']
+ALLOWED_HOSTS = ['lifetimepaws.herokuapp.com']
 #Take out the forward slash
 
 # Application definition
@@ -119,7 +116,7 @@ DATABASES = {
 }
 
 #This will be the real default once it's pushed to production
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -172,8 +169,8 @@ USE_TZ = True
 # STATIC_URL = '/static/'
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-# PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
-# STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+PROJECT_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
 
 MEDIA_URL = '/media/'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
@@ -187,9 +184,9 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-#     )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    )
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'skim121',
