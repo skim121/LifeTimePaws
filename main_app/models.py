@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 from django.contrib.auth.hashers import make_password
+from ckeditor.fields import RichTextField
 
 
 #This is repeatitive on purpose - there is a shorter way to write this (with base function and other functions to pass in data) but it is not advisable to pass in password information directly. Passing in password would make it bypass encryption and make the user account less secure.
@@ -112,7 +113,8 @@ class Animal(models.Model):
     shelter = models.ForeignKey(Shelter, on_delete=models.CASCADE)
     day_entered = models.DateField()
     due_date = models.DateField(blank=True)
-    description = models.CharField(max_length=250, blank=True) 
+    # description = models.CharField(max_length=250, blank=True) 
+    description = RichTextField(blank=True, null=True)
     image = models.ImageField(null = True, blank = True, upload_to="images/")
     created_at = models.DateTimeField(auto_now_add=True)
     favorites = models.ManyToManyField(User, default=None, blank=True )

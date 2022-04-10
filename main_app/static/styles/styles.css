@@ -178,6 +178,22 @@
 
 .createform{
     margin: auto;
-    border: 2px solid orange;
-    /* width: 50%;  */
+    width: 80%; 
+}
+
+.h1add{
+    text-align: center;
+    color: var(--green);
+    font-weight: bold;
+}
+
+#addbtn, #cancel{
+    text-align: center;
+    padding-left: 3%; 
+    padding-right: 3%; 
+    margin: 1% 1%; 
+}
+
+.buttons{
+    text-align: center !important;
 }
