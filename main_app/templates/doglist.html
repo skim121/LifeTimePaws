@@ -1,7 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Available Dogs</h1>
+    <form>
+    <div>
+        <!-- searches for the name of the cat -->
+        <input type="text" name="name" placeholder="Search by name, sex, or breed"/>
+        <input type="submit" value="Search"/>
+    </div>
+    <a href="{% url 'dog_list' %}">Clear Search</a>
+</form> 
+
+    <h1>{{header}}</h1>
     {% for dog in dogs %}
     <h3>Name: {{dog.name}}</h3>
     <h3>Age: {{dog.age}}</h3>

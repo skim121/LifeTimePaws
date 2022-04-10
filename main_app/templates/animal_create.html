@@ -2,14 +2,15 @@
 {% load crispy_forms_tags %}
 
 {% block content %}
-
+<div class="addcontainer">
 	<h1 class="h1add">Add New Rescue Paws</h1>
 	<div class="createform">
-        <form method="POST" enctype="multipart/form-data" autocomplete="off">
+        <form method="POST" enctype="multipart/form-data" autocomplete="off" class="formpd">
             {% csrf_token %} 
             {{ form.media }}
-            {{ form |crispy}}
-            <!-- <div class="form-row">
+            <!-- {{ form |crispy}} -->
+
+            <div class="form-group row">
                 <div class="form-group col-md-8">
                     {{ form.name|as_crispy_field}}
                 </div>
@@ -18,7 +19,7 @@
                 </div>
             </div>
             {{ form.breed|as_crispy_field}}
-            <div class="form-row">
+            <div class="form-group row">
                 <div class="form-group col-md-4">
                     {{ form.age|as_crispy_field}}
                 </div>
@@ -30,23 +31,25 @@
                 </div>
             </div>
             {{ form.shelter|as_crispy_field}}
-            <div class="form-row">
+            <div class="form-group row">
                 <div class="form-group col-md-6">
                     {{ form.day_entered|as_crispy_field}}
+                    <p class="text-muted" style="margin-top:-10px;"> Enter the day this animal entered your shelter </p>
                 </div>
                 <div class="form-group col-md-6">
                     {{ form.due_date|as_crispy_field}}
                 </div>
             </div>
                 {{ form.description|as_crispy_field}}
-                {{ form.image|as_crispy_field}} -->
+                {{ form.image|as_crispy_field}}
             <div class="buttons">
-                <button class="btn btn-outline-primary" id="cancel" type = "cancel">Cancel</button>
+                <button class="btn btn-outline-primary" id="cancel" type = "reset">Reset</button>
                 <button class="btn btn-primary" id="addbtn" type = "submit">Submit</button>
             </div>
             
         </form>
     </div>
+</div>
 </br>
 </br>
 {% endblock %}

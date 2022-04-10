@@ -21,11 +21,12 @@
     {% endif %}
 
     {% if request.user.is_authenticated %}
-        {% if word %}
+        <a href="{% url 'favorite_add' animal.id %}">Add to favorites</a>  
+        <!-- {% if word %}
         <a href="{% url 'favorite_add' animal.id %}">Remove from favorites</a>
         {% else %}
         <a href="{% url 'favorite_add' animal.id %}">Add to favorites</a>
-        {% endif %}
+        {% endif %} -->
     {% else %}
     <a href="/signup">Add to favorites</a>
     {% endif %}

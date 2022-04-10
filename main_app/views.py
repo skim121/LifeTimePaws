@@ -33,7 +33,18 @@ class DogList(TemplateView):
     template_name = "doglist.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["dogs"] = Animal.objects.filter(type='dog')
+        name = self.request.GET.get("name")
+        # breed = self.request.GET.get("breed")
+        # sex = self.request.GET.get("sex")
+        if name!=None: 
+        # or breed != None or sex != None:
+            context["dogs"] = Animal.objects.filter(type="dog", name__icontains=name)
+            # context["dogs"] = Animal.objects.filter(name_icontains=breed)
+            # context["dogs"] = Animal.objects.filter(sex=sex)
+            context["header"]=f"Searching for {name}"
+        else: 
+            context["dogs"] = Animal.objects.filter(type='dog')
+            context["header"] = "Available Dogs"
         return context
 
 class CatList(TemplateView): 
@@ -54,13 +65,15 @@ class AnimalCreate(CreateView):
 class AnimalDetail(DetailView):
     model = Animal
     template_name = "paws_detail.html"
-    def get_animal_data(request, animal):
-        animal = get_object_or_404(Animal)
-        word = bool 
-        if animal.favorites.filter(id=request.user.id).exists():
-            word = True
-        print(word)
-        return animal
+    # def get_context_data(request, animal):
+    #     animal = get_object_or_404(Animal)
+    #     if animal.favorites.filter(id=request.user.id).exists(): 
+    #         context["animal"] = animal
+    #         context["phrase"] = "Remove from favorites"
+    #     else:
+    #         context["animal"] = animal
+    #         context["phrase"] = "Add to favorites"
+    #     return context
 
 @method_decorator(login_required, name='dispatch')
 class AnimalUpdate(UpdateView): 
