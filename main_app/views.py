@@ -25,6 +25,10 @@ class Home(TemplateView):
     
         return context
 
+class About(TemplateView):
+    template_name="about.html"
+
+
 class DogList(TemplateView): 
     template_name = "doglist.html"
     def get_context_data(self, **kwargs):

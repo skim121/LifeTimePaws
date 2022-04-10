@@ -99,8 +99,7 @@
 .meet{
     color: var(--white);
     margin-top: 1%;
-    padding-left: 5%;
-    font-size: 36px;
+    font-size: 42px;
     font-weight: bold !important;
     text-align: center;
 }
@@ -129,6 +128,10 @@
     /* width: 80%; */
 }
 
+.card:hover{
+    filter: brightness(90%); 
+}
+
 .card-img-top{
     border-radius: 1.5rem 1.5rem 0 0 !important; 
 }
@@ -137,17 +140,39 @@
     background-color: var(--white) !important;
 }
 
-.whitepaw{
-    margin:auto !important;
-    display: block;
-    margin-top: 0% !important;
+.meetdiv{
+   text-align: center;
 }
 
 .how{
-    color: var(--orange);
+    color: var(--green);
     margin-top: 1%;
-    padding-left: 5%;
-    font-size: 36px;
+    padding-top:3%;
+    font-size: 42px;
     font-weight: bold !important;
     text-align: center;
 }
+
+#squares{
+    text-align: center !important;
+    justify-content: center;
+}
+
+#sqr{
+    background: var(--yellow);
+    margin: 3%; 
+    padding: 0 2%;
+    align-items: center;
+    align-content: center;
+}
+
+.boxtext{
+    color:white; 
+    align-self: center;
+    /* border: 2px solid blue; */
+    padding: 1%;
+    font-size: 120px;
+    line-height: 75%;
+    font-weight: bold;
+}
+
