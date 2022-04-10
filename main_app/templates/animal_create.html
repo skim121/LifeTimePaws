@@ -3,11 +3,13 @@
 
 {% block content %}
 
-	<h1>Add New Rescue Paws</h1>
+	<h1 class="h1add">Add New Rescue Paws</h1>
 	<div class="createform">
         <form method="POST" enctype="multipart/form-data" autocomplete="off">
             {% csrf_token %} 
-            <div class="form-row">
+            {{ form.media }}
+            {{ form |crispy}}
+            <!-- <div class="form-row">
                 <div class="form-group col-md-8">
                     {{ form.name|as_crispy_field}}
                 </div>
@@ -37,9 +39,12 @@
                 </div>
             </div>
                 {{ form.description|as_crispy_field}}
-                {{ form.image|as_crispy_field}}
-
-            <button class="btn btn-primary" type = "submit">Submit</button>
+                {{ form.image|as_crispy_field}} -->
+            <div class="buttons">
+                <button class="btn btn-outline-primary" id="cancel" type = "cancel">Cancel</button>
+                <button class="btn btn-primary" id="addbtn" type = "submit">Submit</button>
+            </div>
+            
         </form>
     </div>
 </br>

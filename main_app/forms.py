@@ -3,7 +3,8 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate
 from .models import User, Animal, Shelter
 from django.contrib.auth.hashers import make_password
-
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit, Layout, Row, Column 
 class SignUpForm(UserCreationForm): 
     email = forms.EmailField(max_length = 250)
     fullname = forms.CharField(max_length=250)
@@ -50,5 +51,16 @@ class AnimalCreationForm(forms.ModelForm):
             'due_date': DateInput(),
         }
      
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Submit'))
+        self.helper.layout = Layout(
+            Row(
+                Column('name'),
+                Column('type')
+            )
+        )
     
    
