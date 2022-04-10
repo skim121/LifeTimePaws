@@ -34,14 +34,15 @@ class DogList(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
-        # breed = self.request.GET.get("breed")
-        # sex = self.request.GET.get("sex")
+        breed = self.request.GET.get("breed")
         if name!=None: 
-        # or breed != None or sex != None:
             context["dogs"] = Animal.objects.filter(type="dog", name__icontains=name)
             # context["dogs"] = Animal.objects.filter(name_icontains=breed)
             # context["dogs"] = Animal.objects.filter(sex=sex)
-            context["header"]=f"Searching for {name}"
+            context["header"]=f"Search results for {name}..."
+        elif breed!=None: 
+            context["dogs"] = Animal.objects.filter(type="dog", breed__icontains=breed)
+            context["header"]=f"Search results for {breed}..."
         else: 
             context["dogs"] = Animal.objects.filter(type='dog')
             context["header"] = "Available Dogs"
