@@ -11,9 +11,13 @@
 .body{
     background-color: #F1E6DE;
     /* font-family: 'Noto Sans', sans-serif !important; */
-    font-family: 'Poppins', sans-serif !important;
+    /* font-family: 'Poppins', sans-serif !important; */
 }
 
+.logo{
+    color:var(--white); 
+    font-family: 'Poppins', sans-serif !important;
+}
 #footer{
     text-align: center !important;
     color: var(--gray) !important; 
@@ -67,7 +71,7 @@
 }
 
 #stats{
-    margin: 0 3%; 
+    margin: 3% 3%; 
     padding: 3%;
     /* border: 2px solid black;  */
 }
@@ -92,7 +96,7 @@
     color: var(--gray);
 }
 
-.meet, .how{
+.meet{
     color: var(--white);
     margin-top: 1%;
     padding-left: 5%;
@@ -130,5 +134,20 @@
 }
 
 .howdiv{
-    background-color: var(--yellow) !important;
+    background-color: var(--white) !important;
+}
+
+.whitepaw{
+    margin:auto !important;
+    display: block;
+    margin-top: 0% !important;
+}
+
+.how{
+    color: var(--orange);
+    margin-top: 1%;
+    padding-left: 5%;
+    font-size: 36px;
+    font-weight: bold !important;
+    text-align: center;
 }
