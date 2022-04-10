@@ -77,8 +77,8 @@ class User(AbstractBaseUser):
 
 
 KILL_CHOICES = (
-    ("kill", "kill"),
-    ("no-kill", "no-kill"),
+    ("Kill", "Kill"),
+    ("No-kill", "No-kill"),
 )
 
 class Shelter(models.Model):
@@ -99,15 +99,15 @@ TYPE_CHOICES = (
 )
 
 SEX_CHOICES = (
-    ("female", "female"),
-    ("male", "male")
+    ("Female", "Female"),
+    ("Male", "Male")
 )
 
 class Animal(models.Model):
     type = models.CharField(max_length=100, choices = TYPE_CHOICES)
     name = models.CharField(max_length=250)
     breed = models.CharField(max_length=250)
-    age = models.PositiveIntegerField()
+    age = models.CharField(max_length=250)
     sex = models.CharField(max_length=10, choices = SEX_CHOICES)
     weight = models.PositiveIntegerField()
     shelter = models.ForeignKey(Shelter, on_delete=models.CASCADE)

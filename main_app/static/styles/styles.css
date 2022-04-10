@@ -116,19 +116,19 @@
     text-align: center;
 }
 
-.card{
+#homecards{
     /* background-color: transparent !important; */
     border: none !important;
     border-radius: 1.5rem !important;
     /* width: 80%; */
 }
 
-.card:hover{
+#homecards:hover{
     filter: brightness(110%); 
     transform: translate3D(0,-1px,0) scale(1.03);
 }
 
-.card-img-top{
+#homecardimg{
     border-radius: 1.5rem 1.5rem 0 0 !important; 
 }
 
@@ -219,4 +219,9 @@
     height: 50px !important;
     border-radius: 1.5rem !important; 
     padding: 0 3% !important;
+}
+
+#listcardtitle{
+    font-family: 'Poppins', sans-serif !important;
+    text-transform: uppercase;
 }

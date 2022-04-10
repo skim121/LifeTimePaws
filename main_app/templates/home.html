@@ -55,8 +55,8 @@ LifeTimePaws
         {% for animal in paws %}
         <div class="col-md-2 justify-content-center" id="pawscard">
         <a href="{% url 'paws_detail' animal.pk %}" class="text-decoration-none" id="clickpaws" >
-        <div class="card">
-            <img class="card-img-top" src = "https://res.cloudinary.com/skim121/image/upload/c_fill,g_face,h_1000,w_1000/{{animal.image}}" alt="{{animal.name}} image">
+        <div class="card" id="homecards">
+            <img class="card-img-top" id="homecardimg" src = "https://res.cloudinary.com/skim121/image/upload/c_fill,g_face,h_1000,w_1000/{{animal.image}}" alt="{{animal.name}} image">
             <div class="card-body">
                 <h3 class="card-title">{{animal.name}}</h3>
                 <p class="card-text">Due date: </br>
