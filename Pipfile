@@ -15,6 +15,7 @@ django-cloudinary-storage = "*"
 django-crispy-forms = "*"
 crispy-bootstrap5 = "*"
 pillow = "*"
+django-ckeditor = "*"
 
 [dev-packages]
 

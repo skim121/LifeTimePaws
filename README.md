@@ -17,7 +17,7 @@ LifeTimePaws is a centralized platform for publicizing animals that need urgent 
 
 
 ## Get Started
-See deployed site here: 
+See deployed site here: [Heroku Link](https://lifetimepaws.herokuapp.com/)
 
 ## Brainstorming
 
@@ -42,11 +42,17 @@ See deployed site here:
 
 
 ## Technologies Used:
-- Django
+- Django (Python)
 - PostgreSQL
+- Bootstrap5
+- Cloudinary
 
 ## Unsolved Problems:
-- 
+- Debugging login directly from signup page 
+- Limit CRUD to user's items only 
 
 ## Future Enhancements:
-- 
+- User password reset 
+- Countdown display for due date 
+- Adding video and multiple images to animal detail page
+- Enhance UI with animations 

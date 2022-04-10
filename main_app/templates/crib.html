@@ -1,0 +1,17 @@
+<form method="post" action="/account/login" id="customer_login" accept-charset="UTF-8" novalidate="novalidate"><input type="hidden" name="form_type" value="customer_login"><input type="hidden" name="utf8" value="✓"><div class="field">        
+    <input type="email" name="customer[email]" id="CustomerEmail" autocomplete="email" autocorrect="off" autocapitalize="off" placeholder="Email" class="input">
+  </div><div class="field">          
+      <input type="password" value="" name="customer[password]" id="CustomerPassword" autocomplete="current-password" placeholder="Password" class="input">
+    </div>
+
+    <div class="mt-4 flex justify-center">
+      <a href="#recover" class="block mx-auto">
+        Forgot your password?
+      </a>
+    </div><button class="btn">
+    Sign in
+  </button>
+
+  <a href="/account/register" class="btn">
+    Create account
+  </a><input type="hidden" name="return_url" value="/account"></form>
