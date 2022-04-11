@@ -1,12 +1,40 @@
 {% extends 'base.html' %}
-<!-- {% load cloudinary %} -->
 
 {% block content %}
-    <h1>Available Cats</h1>
-    {% for cat in paws %}
-    <h3>Name: {{cat.name}}</h3>
-    <h3>Age: {{cat.age}}</h3>
-    <img src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_150,w_150/{{cat.image}}" alt="{{cat.name}}">
-    <a href="{% url 'paws_detail' cat.pk %}">See More</a>
+<div class="background-image-dog"  style="background-image:url('../static/images/ac.png'); height: 400px; background-size:cover; background-repeat:no-repeat; text-align:center; position:relative;">
+    <form style="position: absolute; top:50%;transform: translateY(-50%); width: 80%; margin-left:10%;" autocomplete="off">
+            <h1 class="headertext">{{header}}</h1>
+            <input type="text" name="name" placeholder="Search by name" class="searchbar"/>
+            <button type="submit" class="btn btn-primary" id="listsearchbtn"> Search </button>
+    </br>
+        <a href="{% url 'cat_list' %}" style="color:white;">Clear Search</a>     
+    </form> 
+</div>
+
+<div class="row align-itmes-start m-4">
+    {% for cat in cats %}
+    <div class="col-lg-3 justify-content-center text-center" id="pawscard">
+    <div class="card">
+        <img class="card-img-top" src = "https://res.cloudinary.com/skim121/image/upload/c_fill,g_face,h_650,w_650/{{cat.image}}" alt="{{cat.name}} image">
+        <div class="card-body">
+            <h3 class="card-title" id="listcardtitle">{{cat.name}}</h3>
+            <div class="row" style="font-size: large;">
+                    <p>{{cat.age}} old </br>
+                    {{cat.sex}} </br>
+                    {{cat.weight}} lbs</p>
+            </div>
+                <p><span style="font-weight:bold;">In shelter since: </span></br>
+                    {{cat.day_entered}}</p>
+           
+            <a href="{% url 'paws_detail' cat.pk %}">
+                <button class="btn btn-outline-primary">
+                    See More
+                </button>
+            </a>
+        </div>
+    </div>
+    </div>
     {% endfor %}
+</div>
+
 {% endblock %}
