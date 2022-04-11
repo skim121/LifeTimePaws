@@ -34,15 +34,9 @@ class DogList(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
-        breed = self.request.GET.get("breed")
         if name!=None: 
             context["dogs"] = Animal.objects.filter(type="dog", name__icontains=name)
-            # context["dogs"] = Animal.objects.filter(name_icontains=breed)
-            # context["dogs"] = Animal.objects.filter(sex=sex)
             context["header"]=f"Search results for {name}..."
-        elif breed!=None: 
-            context["dogs"] = Animal.objects.filter(type="dog", breed__icontains=breed)
-            context["header"]=f"Search results for {breed}..."
         else: 
             context["dogs"] = Animal.objects.filter(type='dog')
             context["header"] = "Available Dogs"
@@ -52,7 +46,13 @@ class CatList(TemplateView):
     template_name = "catlist.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["paws"] = Animal.objects.filter(type='cat')
+        name = self.request.GET.get("name")
+        if name!=None: 
+            context["cats"] = Animal.objects.filter(type="cat", name__icontains=name)
+            context["header"]=f"Search results for {name}..."
+        else: 
+            context["cats"] = Animal.objects.filter(type='cat')
+            context["header"] = "Available Cats"
         return context
 
 @method_decorator(login_required, name='dispatch')
