@@ -283,7 +283,9 @@
 }
 
 #pawsshelterinfo{
-    background: gray !important; 
+    background: var(--green) !important; 
+    color:white !important;
+    padding: 5%; 
 }
 
 .editicon, .deleteicon{
@@ -298,22 +300,35 @@
     /* background-color: var(--green); */
 }
 
+#shelterlink{
+    text-decoration: none !important;
+    font-weight: bold;
+    color: var(--orange) !important; 
+}
+
+#shelterlink:hover{
+    color: #bd8050 !important; 
+}
+
+
+
 #pawsname{
     font-weight: bold !important;
-    padding-left: 10%; 
+    padding-left: 5%; 
 }
 
 #pawswatch{
-    padding-left: 10%; 
+    color: var(--gray) !important;
 }
 
 .hlname{
-    color: #3b5756 !important;
+    color: var(--green) !important;
     /* color:var(--orange); */
 }
 
 #pagehalf{
-    padding-left: 10%; 
+    padding-left: 5%; 
+    padding-right: 5%;
 }
 
 #bold{
@@ -323,8 +338,15 @@
 #boldme{
     font-weight: bold;
     color:var(--gray);
+    font-family: 'Poppins', sans-serif !important;
 }
 
 #adddetes{
     color:var(--gray);
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif !important;
+}
+
+#adoptbtns{
+    margin-top: 8%; 
 }
