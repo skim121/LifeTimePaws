@@ -1,7 +1,11 @@
-{% extends 'base.html' %} 
+{% extends 'baseneutral.html' %} 
+
+
+{% block title %}
+LifeTimePaws | Shelter detail
+{% endblock %}
 
 {% block content %}
-
 <div>
     <img src = "https://res.cloudinary.com/skim121/image/upload/c_scale,w_0.8/{{shelter.image}}" alt="{{shelter.name}}">
     <h1>{{shelter.name}}</h1>
