@@ -1,24 +1,31 @@
 {% extends 'base.html' %}
-
-
-    <!-- <h1>Shelters Participating: </h1>
-    {% for shelter in shelters %}
-    <a href="{% url 'shelter_detail' shelter.pk %}">
-        <h3>Name: {{shelter.name}}</h3>
-        <h3>Location: {{shelter.location}}</h3>
-    </a>
-    {% endfor %} -->
-
 {% block content %}
 
-<div class="background-image-dog"  style="background-image:url('../static/images/ac.png'); height: 400px; background-size:cover; background-repeat:no-repeat; text-align:center; position:relative;">
+<div class="background-image-dog"  style="background-image:url('../static/images/sheltercover.png'); height: 400px; background-size:cover; background-repeat:no-repeat; text-align:center; position:relative;">
     <form style="position: absolute; top:50%;transform: translateY(-50%); width: 80%; margin-left:10%;" autocomplete="off">
             <h1 class="headertext">{{header}}</h1>
             <input type="text" name="name" placeholder="Search by name" class="searchbar"/>
             <button type="submit" class="btn btn-primary" id="listsearchbtn"> Search </button>
     </br>
-        <a href="{% url 'cat_list' %}" style="color:white;">Clear Search</a>     
+        <a href="{% url 'shelter_list' %}" style="color:white;">Clear Search</a>     
     </form> 
 </div>
+</br>
+</br>
+{% for shelter in shelters %}
+<div class="container dflex justify-content-center align-items-center" style="text-align: center; position: relative;">
+
+<div class="card dflex" id="shelterlists">
+    <a href="{% url 'shelter_detail' shelter.pk %}" class="text-decoration-none" style="text-align: center;" id="shelteratag">
+        <div>
+            <h3 id="sheltername"> {{shelter.name}}</h3>
+            <h3 id="shelterlocation">Located in {{shelter.location}}</h3>
+        </div>
+    </a>
+
+</div>
+</div>
+{% endfor %} 
+
 
 {% endblock %}
