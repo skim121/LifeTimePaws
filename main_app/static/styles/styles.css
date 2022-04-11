@@ -250,3 +250,35 @@
 }
 
  
+#shelterlists{
+    max-width: 60% !important; 
+    margin: 2% 20% !important; 
+    border-radius: 1.5rem; 
+    justify-content: center !important;
+}
+
+#shelteratag{
+    color: var(--green) !important;
+}
+
+#shelteratag:hover{
+    color: var(--white) !important; 
+}
+
+
+#shelterlists:hover{
+    background: var(--green) !important; 
+    border: none;
+}
+
+#sheltername{
+    /* color: var(--green) !important;  */
+    font-family: 'Poppins', sans-serif !important;
+    font-weight: bold !important;
+}
+
+#shelterlocation{
+    /* color: var(--green) !important;  */
+    /* font-weight: bold !important; */
+}
+

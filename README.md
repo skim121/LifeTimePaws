@@ -50,11 +50,11 @@ See deployed site here: [Heroku Link](https://lifetimepaws.herokuapp.com/)
 ## Unsolved Problems:
 - Debugging login directly from signup page 
 - Limit CRUD to user's items only 
+- Pagination for overflow data 
 
 ## Future Enhancements:
 - User password reset 
 - Countdown display for due date 
-- Rich Text Field for description 
 - Adding video and multiple images to animal detail page
 - Enhance UI with animations 
 - Payment functionality for donations 

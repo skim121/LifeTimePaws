@@ -95,8 +95,21 @@ class ShelterList(TemplateView):
     template_name = "shelter_list.html"
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["shelters"] = Shelter.objects.all()
+        name = self.request.GET.get("name")
+        if name!=None: 
+            context["shelters"] = Shelter.objects.filter(name__icontains=name)
+            context["header"]=f"Search results for {name}..."
+        else: 
+            context["shelters"] = Shelter.objects.all()
+            context["header"] = "Shelters Participating"
         return context
+
+
+
+
+
+
+
 
 class ShelterDetail(DetailView): 
     model = Shelter

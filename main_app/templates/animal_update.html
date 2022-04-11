@@ -1,11 +1,16 @@
-{% extends 'base.html' %}
+{% extends 'baseneutral.html' %}
 {% load crispy_forms_tags %}
 {% load bootstrap_icons %}
+
+{% block title %}
+LifeTimePaws | Update animal
+{% endblock %}
+
 
 {% block content %}
 
 <div class="addcontainer">
-  <button onclick="history.back()" class="btn btn-outline-primary"> {% bs_icon 'arrow-bar-left' %} Back</button>
+  <button onclick="history.back()" class="btn btn-outline-primary" style="margin-left: 3%;"> {% bs_icon 'arrow-bar-left' %} Back</button>
 	<h1 class="h1add">Update {{animal.name}}'s Information</h1>
 </br>
 	<div class="createform p-4">
