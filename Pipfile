@@ -16,6 +16,7 @@ django-crispy-forms = "*"
 crispy-bootstrap5 = "*"
 pillow = "*"
 django-ckeditor = "*"
+django-bootstrap-icons = "*"
 
 [dev-packages]
 

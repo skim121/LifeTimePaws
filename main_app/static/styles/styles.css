@@ -7,6 +7,18 @@
     --gray: #727272;
 }
 
+#reveal{
+    position: relative;
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 1s all ease;
+  }
+  
+  #reveal.active{
+    transform: translateY(0);
+    opacity: 1;
+  }
+
 /* var(--white) */
 .body{
     background-color: #F1E6DE;
@@ -144,7 +156,7 @@
 .how{
     color: var(--green);
     margin-top: 1%;
-    padding-top:3%;
+    padding-top:5%;
     font-size: 42px;
     font-weight: bold !important;
     text-align: center;
@@ -152,16 +164,18 @@
 
 #squares{
     text-align: center !important;
-    justify-content: center;
+    justify-content: center !important;
 }
 
 #sqr{
-    background: var(--yellow);
-    margin: 3%; 
-    padding: 0 2%;
+    border: 2px solid black !important;
+    /* margin: 5%;  */
+    /* padding: 0 2%; */
     align-items: center;
     align-content: center;
 }
+
+
 
 .boxtext{
     color:white; 
@@ -176,7 +190,15 @@
 .createform{
     margin: 0 auto; 
     display: block; 
-    max-width: 700px; 
+    max-width: 800px; 
+    background: var(--orange);
+    box-shadow: 12px 12px var(--gray);
+    /* box-shadow: 5px 0 5px -5px var(--gray), -5px 0 5px -5px var(--gray); */
+}
+
+#fieldlabel{
+    color: white !important; 
+    font-weight: bold;
 }
 
 .h1add{
@@ -226,3 +248,5 @@
     font-family: 'Poppins', sans-serif !important;
     text-transform: uppercase;
 }
+
+ 

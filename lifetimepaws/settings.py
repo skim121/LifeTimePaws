@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'crispy_forms',
     'crispy_bootstrap5',
     'ckeditor',
+    'django_bootstrap_icons',
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'bootstrap5, semantic-ui'
@@ -196,3 +197,10 @@ CLOUDINARY_STORAGE = {
 }
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'width': 'auto',
+        'toolbarCanCollapse': False,
+    },
+}

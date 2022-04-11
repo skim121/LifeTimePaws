@@ -13,7 +13,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.backends import ModelBackend
 from django.utils.decorators import method_decorator 
 from django.shortcuts import render, redirect
-from .forms import SignUpForm, LogInForm, AnimalCreationForm
+from .forms import SignUpForm, LogInForm, AnimalCreationForm, AnimalUpdateForm
 
 User = get_user_model()
 
@@ -79,7 +79,8 @@ class AnimalDetail(DetailView):
 @method_decorator(login_required, name='dispatch')
 class AnimalUpdate(UpdateView): 
     model = Animal
-    fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'day_entered', 'due_date', 'description', 'image']
+    form_class = AnimalUpdateForm
+    # fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'day_entered', 'due_date', 'description', 'image']
     template_name = "animal_update.html"
     def get_success_url(self): 
         return reverse('paws_detail', kwargs={'pk': self.object.pk})

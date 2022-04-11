@@ -63,4 +63,25 @@ class AnimalCreationForm(forms.ModelForm):
             )
         )
     
-   
+class AnimalUpdateForm(forms.ModelForm): 
+
+    class Meta: 
+        model = Animal
+        fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'day_entered', 'due_date', 'description', 'image']
+        widgets = {
+            'day_entered': DateInput(),
+            'due_date': DateInput(),
+        }
+     
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = 'post'
+        self.helper.add_input(Submit('submit', 'Submit'))
+        self.helper.layout = Layout(
+            Row(
+                Column('name'),
+                Column('type')
+            )
+        )
+    

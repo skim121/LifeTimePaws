@@ -53,7 +53,7 @@ LifeTimePaws
 
     <div class="row" id="homepaws">
         {% for animal in paws %}
-        <div class="col-md-2 justify-content-center" id="pawscard">
+        <div class="col-lg-2 justify-content-center" id="pawscard">
         <a href="{% url 'paws_detail' animal.pk %}" class="text-decoration-none" id="clickpaws" >
         <div class="card" id="homecards">
             <img class="card-img-top" id="homecardimg" src = "https://res.cloudinary.com/skim121/image/upload/c_fill,g_face,h_1000,w_1000/{{animal.image}}" alt="{{animal.name}} image">
@@ -68,31 +68,51 @@ LifeTimePaws
         {% endfor %}
     </div>
 </br>
-    <div class="background-image"  style="background-image:url('./static/images/ht2.png'); height:550px; background-size:cover; background-repeat:no-repeat; text-align:center;"> 
+</br>
+</br>
+<section>
+
+
+    <div class="background-image mb-3"  style="background-image:url('./static/images/ht2.png'); height:auto; background-size:cover; background-repeat:no-repeat; text-align:center;"> 
         <h1 class="how"> HOW YOU CAN HELP </h1>
+    </br></br>
+    
         <div class="row" id="squares">
-            <div class="col-md-2" id="sqr">
-                <h1 class="text-break text-uppercase boxtext">Adopt</h1>
+        <div class="col-lg-3 d-flex justify-content-center mb-4">
+            <a href="/dogs">
+            <div style="background-image:url('./static/images/adopt.png'); width:280px; height:280px; background-size:cover; background-repeat:no-repeat; margin:0">
             </div>
-            <div class="col-md-2" id="sqr">
-                <h1 class="text-break text-uppercase boxtext">Travel</h1>
+            </a>
+        </div>
+        <div class="col-lg-3 d-flex justify-content-center mb-4">
+            <a href="/about">
+            <div style="background-image:url('./static/images/donate.png'); width:280px; height:280px; background-size:cover; background-repeat:no-repeat; margin:0; ">
             </div>
-            <div class="col-md-2" id="sqr">
-                <h1 class="text-break text-uppercase boxtext">Donate</h1>
+            </a>
+        </div>
+        <div class="col-lg-3 d-flex justify-content-center mb-4">
+            <a href="/about">
+            <div style="background-image:url('./static/images/travel.png'); width:280px; height:280px; background-size:cover; background-repeat:no-repeat; margin:0; ">
             </div>
+            </a>
         </div>
 
-
+            <!-- <div class="col-md-2" id="sqr">
+                <img src="./static/images/donate.png" style=" width:280px; height:280px;">
+            </div>
+            <div class="col-md-2" id="sqr">
+                <img src="./static/images/travel.png" style=" width:280px; height:280px;">
+            </div> -->
+        </div>
+    
     </br>
-</br>
-</br>
-</br>
-</br>
-
-
-
+    </br>
+    </br>
     </div>
-
+</section>
+</br>
+</br>
+</br>
 {% endblock %}
 
 

@@ -1,12 +1,69 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% load bootstrap_icons %}
 
 {% block content %}
-<h1>Update {{animal.name}}</h1>
 
-<form action="" method="post">
-  {% csrf_token %} 
-  {{form.as_p}} 
-  <input type="submit" value="Submit" />
-</form>
+<div class="addcontainer">
+  <button onclick="history.back()" class="btn btn-outline-primary"> {% bs_icon 'arrow-bar-left' %} Back</button>
+	<h1 class="h1add">Update {{animal.name}}'s Information</h1>
+</br>
+	<div class="createform p-4">
+        <form method="POST" enctype="multipart/form-data" autocomplete="off" class="formpd">
+            {% csrf_token %} 
+            {{ form.media }}
+            <!-- {{ form |crispy}} -->
 
+            <div class="form-group row">
+                <div class="form-group col-md-8" id="fieldlabel">
+                    {{ form.name|as_crispy_field}}
+                </div>
+                <div class="form-group col-md-4" id="fieldlabel">
+                    {{ form.type|as_crispy_field}}
+                </div>
+            </div>
+            {{ form.breed|as_crispy_field}}
+            <div class="form-group row">
+                <div class="form-group col-md-4" id="fieldlabel">
+                    {{ form.age|as_crispy_field}}
+                    <p class="text-muted" style="margin-top:-15px;"> Type year or month </p>
+                </div>
+                
+                <div class="form-group col-md-4" id="fieldlabel">
+                    {{ form.sex|as_crispy_field}}
+                </div>
+                <div class="form-group col-md-4" id="fieldlabel">
+                    {{ form.weight|as_crispy_field}}
+                    <p class="text-muted" style="margin-top:-15px;"> Weight in pounds </p>
+                </div>
+            </div>
+            <div id="fieldlabel">
+            {{ form.shelter|as_crispy_field}}
+            </div>
+            <div class="form-group row">
+                <div class="form-group col-md-6" id="fieldlabel">
+                    {{ form.day_entered|as_crispy_field}}
+                    <p class="text-muted" style="margin-top:-15px;"> Enter the day this animal entered your shelter </p>
+                </div>
+                <div class="form-group col-md-6" id="fieldlabel">
+                    {{ form.due_date|as_crispy_field}}
+                </div>
+            </div>
+            <div id="fieldlabel">
+                {{ form.description|as_crispy_field}}
+            </div>
+            <div id="fieldlabel">
+            {{ form.image|as_crispy_field}}
+            </div>
+                
+            <div class="buttons">
+                <button class="btn btn-outline-primary" id="cancel" type = "reset">Reset</button>
+                <button class="btn btn-primary" id="addbtn" type = "submit">Submit</button>
+            </div>
+            
+        </form>
+    </div>
+</div>
+</br>
+</br>
 {% endblock %}
