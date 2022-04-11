@@ -282,3 +282,49 @@
     /* font-weight: bold !important; */
 }
 
+#pawsshelterinfo{
+    background: gray !important; 
+}
+
+.editicon, .deleteicon{
+    color: var(--green) !important;
+    text-decoration: none !important;
+    display: inline-block;
+}
+
+.editicon:hover, .deleteicon:hover{
+    color: var(--white) !important;
+    text-decoration: none !important;
+    /* background-color: var(--green); */
+}
+
+#pawsname{
+    font-weight: bold !important;
+    padding-left: 10%; 
+}
+
+#pawswatch{
+    padding-left: 10%; 
+}
+
+.hlname{
+    color: #3b5756 !important;
+    /* color:var(--orange); */
+}
+
+#pagehalf{
+    padding-left: 10%; 
+}
+
+#bold{
+    font-weight: bold;
+}
+
+#boldme{
+    font-weight: bold;
+    color:var(--gray);
+}
+
+#adddetes{
+    color:var(--gray);
+}
