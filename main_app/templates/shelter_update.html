@@ -1,12 +1,29 @@
 {% extends 'base.html' %} 
+{% load crispy_forms_tags %}
+{% load bootstrap_icons %}
 
 {% block content %}
-<h1>Update {{shelter.name}}</h1>
 
-<form action="" method="post">
-  {% csrf_token %} 
-  {{form.as_p}} 
-  <input type="submit" value="Submit" />
-</form>
+<button onclick="history.back()" class="btn btn-outline-primary" style="margin-left: 3%;"> {% bs_icon 'arrow-bar-left' %} Back</button>
+<h1 class="h1add">Update {{shelter.name}} </h1>
+</br>
+<div class="createform p-4">
+      <form method="POST" enctype="multipart/form-data" autocomplete="off" style="color:white; font-weight: bold;">
+          {% csrf_token %} 
+          {{form|crispy}}
+          <div class="buttons mt-4">
+              <button class="btn btn-outline-primary" id="cancel" type = "reset">Reset</button>
+              <button class="btn btn-primary" id="addbtn" type = "submit">Submit</button>
+          </div>    
+      </form>
+  </div>
+</br>
+</br>
+</br>
+</br>
+</br>
+</br>
+
+
 
 {% endblock %}
