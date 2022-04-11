@@ -71,8 +71,7 @@ LifeTimePaws
 </br>
 </br>
 <section>
-
-
+    {% load custom_tags %} 
     <div class="background-image mb-3"  style="background-image:url('./static/images/ht2.png'); height:auto; background-size:cover; background-repeat:no-repeat; text-align:center;"> 
         <h1 class="how"> HOW YOU CAN HELP </h1>
     </br></br>
@@ -85,13 +84,13 @@ LifeTimePaws
             </a>
         </div>
         <div class="col-lg-3 d-flex justify-content-center mb-4">
-            <a href="/about">
+            <a href="{% anchor 'about' 'aboutdonate' %}">
             <div style="background-image:url('./static/images/donate.png'); width:280px; height:280px; background-size:cover; background-repeat:no-repeat; margin:0; ">
             </div>
             </a>
         </div>
         <div class="col-lg-3 d-flex justify-content-center mb-4">
-            <a href="/about">
+            <a href="{% anchor 'about' 'abouttravel' %}">
             <div style="background-image:url('./static/images/travel.png'); width:280px; height:280px; background-size:cover; background-repeat:no-repeat; margin:0; ">
             </div>
             </a>
