@@ -110,12 +110,12 @@ WSGI_APPLICATION = 'lifetimepaws.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'lifetimepaws',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'lifetimepaws',
+    }
+}
 
 #This will be the real default once it's pushed to production
 DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
