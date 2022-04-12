@@ -117,7 +117,7 @@ class Animal(models.Model):
     description = RichTextField(blank=True, null=True)
     image = models.ImageField(null = True, blank = True, upload_to="images/")
     created_at = models.DateTimeField(auto_now_add=True)
-    favorites = models.ManyToManyField(User, default=None, blank=True )
+    favorites = models.ManyToManyField(User, default=None, blank=True, related_name="animal" )
 
     def __str__(self):
         return self.name

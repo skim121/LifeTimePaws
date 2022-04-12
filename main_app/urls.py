@@ -8,7 +8,7 @@ urlpatterns = [
     path('cats/', views.CatList.as_view(), name="cat_list"),
     path('paws/new/', views.AnimalCreate.as_view(), 
     name="paws_create"),
-    path('paws/<int:pk>', views.AnimalDetail.as_view(), name="paws_detail"),
+    path('paws/<int:id>/', views.AnimalDetail, name="paws_detail"),
     path('paws/<int:pk>/update', views.AnimalUpdate.as_view(), name="animal_update"),
     path('paws/<int:pk>/delete', views.AnimalDelete.as_view(), name="animal_delete"),
     path('shelters/', views.ShelterList.as_view(), name="shelter_list"),
