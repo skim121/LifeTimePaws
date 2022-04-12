@@ -6,36 +6,20 @@
 <div class="container">
 <div class="row align-items-center mx-0">
     <div class="col-lg-6 px-0">
-        <img id="signupimg" class="w-100 img-fluid" src="/static/images/dog3.jpg"/>
+        <img id="signupimg" class="w-100 img-fluid" src="/static/images/signup1.png"/>
    </div>
    
    <div class="col-lg-6" id="right" >
-
-
-
-
    <form action="" method="post" id="registerform" autocomplete="off">
        {% csrf_token %}
        <div>
         <a href="/" class="d-flex align-items-center text-dark text-decoration-none"  style="justify-content: center;">
-            <img src="{% static 'images/LTPlogo4.png' %}" style="width:75%;">
+            <img src="{% static 'images/LTPlogo4.png' %}" style="width:75%; margin-top: 3%;">
         </a>
         </br>
            <h3>Sign Up</h3>
 
            {{ form |crispy }}
-
-           <!-- <input type="email" name = "email" placeholder="Email address">
-           <input type="text" name ="fullname" placeholder="Fullname">
-           <input type="password" name="password1" placeholder="Password" required>
-           <input type="password" name="password2" placeholder="Confirm password" required>
-           <input type="checkbox" name="shelteradmin" placeholder = "shelter_admin">Are you a shelter worker?</input>  -->
-           <!-- <ul>
-               <li>Your password can’t be too similar to your other personal information.</li>
-               <li>Your password must contain at least 8 characters.</li>
-               <li>Your password can’t be a commonly used password.</li>
-               <li>Your password can’t be entirely numeric.</li>
-           </ul> -->
         </div>
         {% for field in signup_view %}
         <p>
@@ -53,8 +37,6 @@
     
 </div>
 </div>
-
-   <!-- <button type="submit" form = "registerform" value="Submit">Sign Up</button> -->
 
 {% endblock %} 
 
