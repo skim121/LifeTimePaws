@@ -61,7 +61,7 @@ class AnimalCreate(CreateView):
     form_class = AnimalCreationForm 
     template_name = 'animal_create.html'
     def get_success_url(self): 
-        return reverse('paws_detail', kwargs={'pk': self.object.pk})
+        return reverse('paws_detail', kwargs={'id': self.object.id})
 
 def AnimalDetail(request, id):
     animal = get_object_or_404(Animal, id=id)
@@ -71,6 +71,7 @@ def AnimalDetail(request, id):
         is_fav = True
     return render(request, 'paws_detail.html', {'animal': animal, 'is_fav': is_fav}) 
 
+
 @method_decorator(login_required, name='dispatch')
 class AnimalUpdate(UpdateView): 
     model = Animal
@@ -78,7 +79,7 @@ class AnimalUpdate(UpdateView):
     # fields = ['name', 'type', 'breed', 'age', 'sex', 'weight', 'shelter', 'day_entered', 'due_date', 'description', 'image']
     template_name = "animal_update.html"
     def get_success_url(self): 
-        return reverse('paws_detail', kwargs={'pk': self.object.pk})
+        return reverse('paws_detail', kwargs={'id': self.object.id})
 
 @method_decorator(login_required, name='dispatch')
 class AnimalDelete(DeleteView): 
