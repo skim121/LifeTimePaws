@@ -421,6 +421,7 @@
 }
 #splitcol2{
     background: var(--green) !important;
+    padding: 5%;
 }
 
 #h3about{
