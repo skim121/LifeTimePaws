@@ -4,16 +4,22 @@
 
 {% block content %}
 <div class="container">
-<div class="row justify-content-evenly align-items-center mx-0">
-    <div class="col-lg vh-100 px-0">
-        <img class="w-100 img-fluid" src="/static/images/dog3.jpg"/>
+<div class="row align-items-center mx-0">
+    <div class="col-lg-6 px-0">
+        <img id="signupimg" class="w-100 img-fluid" src="/static/images/dog3.jpg"/>
    </div>
    
-   <div class="col-lg">
+   <div class="col-lg-6" id="right" >
+
+
+
+
    <form action="" method="post" id="registerform" autocomplete="off">
        {% csrf_token %}
        <div>
-           <h1>LifeTime Paws</h1>
+        <a href="/" class="d-flex align-items-center text-dark text-decoration-none"  style="justify-content: center;">
+            <img src="{% static 'images/LTPlogo4.png' %}" style="width:75%;">
+        </a>
         </br>
            <h3>Sign Up</h3>
 

@@ -384,3 +384,14 @@
 #kill{
     color: var(--orange)
 }
+
+#right{
+    padding: 0 6% !important;
+    margin-bottom: 5%;
+}
+
+@media screen and (max-width: 800px){
+    #signupimg{
+        display:none;
+    }
+}
