@@ -357,3 +357,10 @@
     text-align: center !important;
     margin: 3% 0;
 }
+
+#h1profile{
+    color: var(--green) !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin: 3% 0;
+}
