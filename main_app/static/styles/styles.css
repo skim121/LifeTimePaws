@@ -399,3 +399,64 @@
 #italic{
     color: var(--gray) !important;
 }
+
+#mission{
+    background-color: white !important;
+    text-align: center !important;
+    padding-bottom: 6%;
+}
+
+#h1mission{
+    color: var(--green) !important;
+    font-weight: bold !important;
+    padding-top: 10%;
+}
+
+#aboutp{
+    margin: 4% 25%;
+}
+
+#splitcol1{
+    background: var(--orange) !important;
+}
+#splitcol2{
+    background: var(--green) !important;
+}
+
+#h3about{
+    
+    color: white !important;
+    /* font-weight: bold !important; */
+}
+
+
+#howto{
+    background-color: white !important;
+    padding-bottom: 6%;
+}
+
+#h1howto{
+    color: var(--green) !important;
+    font-weight: bold !important;
+    padding: 2% 10%;
+
+}
+
+#help{
+    background: var(--orange) !important; 
+    padding: 10%; 
+}
+
+#helptitle{
+    color: white !important;
+    font-weight: bold !important;
+}
+
+#helph5{
+    color: white !important;
+    /* font-weight: bold !important; */
+}
+
+#helpp{
+    color: white !important;
+}
