@@ -6,12 +6,17 @@ LifeTimePaws | Delete animal
 
 
 {% block content %}
-<h1>Are you sure you want to Delete {{animal.name}}?</h1>
+<h1 id="h1delete">Are you sure you want to Delete {{animal.name}}?</h1>
 <form method="post">
   {% csrf_token %}
-  <div>
-    <input type="submit" value="Confirm" />
-    <a href="{% url 'paws_detail' animal.pk %}">Cancel</a>
+  <div class="buttons">
+    <a href="{% url 'paws_detail' animal.pk %}" class="btn btn-outline-primary">
+      Cancel
+    </a>
+    <button type="submit" class="btn btn-primary"> Confirm</button>
   </div>
 </form>
+</br>
+</br>
+</br>
 {% endblock %}

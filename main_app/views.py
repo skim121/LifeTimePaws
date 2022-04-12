@@ -88,11 +88,11 @@ class AnimalUpdate(UpdateView):
 @method_decorator(login_required, name='dispatch')
 class AnimalDelete(DeleteView): 
     model = Animal
-    # template_name = "animal_delete_confirm.html"
+    template_name = "animal_delete_confirm.html"
     success_url = "/"
 
-    def get(self,request, *args, **kwargs): 
-        return self.post(request, *args, **kwargs)
+    # def get(self,request, *args, **kwargs): 
+    #     return self.post(request, *args, **kwargs)
 
 
 

@@ -350,3 +350,10 @@
 #adoptbtns{
     margin-top: 8%; 
 }
+
+#h1delete{
+    color: var(--green) !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin: 3% 0;
+}
