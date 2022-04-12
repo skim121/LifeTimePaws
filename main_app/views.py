@@ -63,18 +63,13 @@ class AnimalCreate(CreateView):
     def get_success_url(self): 
         return reverse('paws_detail', kwargs={'pk': self.object.pk})
 
-class AnimalDetail(DetailView):
-    model = Animal
-    template_name = "paws_detail.html"
-    # def get_context_data(request, animal):
-    #     animal = get_object_or_404(Animal)
-    #     if animal.favorites.filter(id=request.user.id).exists(): 
-    #         context["animal"] = animal
-    #         context["phrase"] = "Remove from favorites"
-    #     else:
-    #         context["animal"] = animal
-    #         context["phrase"] = "Add to favorites"
-    #     return context
+def AnimalDetail(request, id):
+    animal = get_object_or_404(Animal, id=id)
+    animals  = Animal.objects.filter( favorites = request.user.id)
+    is_fav = False
+    if animal in animals:
+        is_fav = True
+    return render(request, 'paws_detail.html', {'animal': animal, 'is_fav': is_fav}) 
 
 @method_decorator(login_required, name='dispatch')
 class AnimalUpdate(UpdateView): 
@@ -90,11 +85,8 @@ class AnimalDelete(DeleteView):
     model = Animal
     template_name = "animal_delete_confirm.html"
     success_url = "/"
-
     # def get(self,request, *args, **kwargs): 
     #     return self.post(request, *args, **kwargs)
-
-
 
 
 
@@ -110,12 +102,6 @@ class ShelterList(TemplateView):
             context["shelters"] = Shelter.objects.all()
             context["header"] = "Shelters Participating"
         return context
-
-
-
-
-
-
 
 
 class ShelterDetail(DetailView): 
@@ -214,6 +200,6 @@ def favorite_add(request, id):
         animal.favorites.remove(request.user)   
     else:
         animal.favorites.add(request.user)
-    return HttpResponseRedirect('/user/'+str(request.user.id))
-
+    # return HttpResponseRedirect('/user/'+str(request.user.id))
+    return HttpResponseRedirect('/paws/'+str(animal.id))
 

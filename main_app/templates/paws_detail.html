@@ -38,13 +38,13 @@ LifeTimePaws | {{animal.name}}
         <hr>
         <h5 id="pawswatch"> Number of users watching: {{animal.favorites.count}} </h5>
 <div id="adoptbtns">
+
     {% if request.user.is_authenticated %}
-    <a href="{% url 'favorite_add' animal.id %}"><button class="btn btn-outline-primary"> Watch Me </button></a>  
-    <!-- {% if word %}
-    <a href="{% url 'favorite_add' animal.id %}">Remove from favorites</a>
-    {% else %}
-    <a href="{% url 'favorite_add' animal.id %}">Add to favorites</a>
-    {% endif %} -->
+        {% if is_fav %}
+    <a href="{% url 'favorite_add' animal.id %}"><button class="btn btn-outline-primary"> Unwatch Me </button></a>  
+        {% else %}
+    <a href="{% url 'favorite_add' animal.id %}"><button class="btn btn-outline-primary"> Watch Me </button></a> 
+        {% endif %}
     {% else %}
     <a href="/signup"><button class="btn btn-outline-primary"> Watch Me </button></a>
     {% endif %}
@@ -55,8 +55,6 @@ LifeTimePaws | {{animal.name}}
 </div>
     </div>
 </div>
-
 </div>
-
   
 {% endblock %}

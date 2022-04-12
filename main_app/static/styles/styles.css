@@ -364,3 +364,8 @@
     text-align: center !important;
     margin: 3% 0;
 }
+
+#oneshelter{
+    color: var(--green) !important;
+    font-weight: bold !important;
+}

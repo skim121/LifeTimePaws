@@ -7,12 +7,12 @@ LifeTimePaws | Shelter detail
 
 {% block content %}
 <div class="container-xxl px-md-5 shadow-lg vh-100" id="shelterdetes">
-<div style="text-align: center;">
-    <img src = "https://res.cloudinary.com/skim121/image/upload/c_scale,w_0.8/{{shelter.image}}" alt="{{shelter.name}}">
-    <h1>{{shelter.name}}</h1>
-    <h3> Location: {{shelter.location}} </h3>
-    <h3> This shelter is a {{shelter.kill}} shelter. </h3>
-    <a href="{{shelter.website}}">Click here to visit their website</a>
+<div style="text-align: center; ">
+    <img src = "https://res.cloudinary.com/skim121/image/upload/c_scale,w_1000,h_400/{{shelter.image}}" alt="{{shelter.name}}">
+    <h1 id="oneshelter" style="padding-top: 3%;">{{shelter.name}}</h1>
+    <h3 id="oneshelter"> Location: {{shelter.location}} </h3>
+    <h3 id="oneshelter"> This shelter is a {{shelter.kill}} shelter. </h3>
+    <a href="{{shelter.website}}" id="oneshelteratag">Click here to visit their website</a>
 
 </br>
 {% if request.user.shelter_admin %}
