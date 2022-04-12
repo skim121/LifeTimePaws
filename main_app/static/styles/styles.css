@@ -372,11 +372,15 @@
 
 #oneshelteratag{
     text-decoration: underline !important;
-    color: var(--orange) !important;
+    color: var(--gray) !important;
     font-weight: bold !important; 
-    padding-bottom: 10%;
+    margin-bottom: 10%;
 }
 
 #oneshelteratag:hover{
-    color: #bd8050 !important;   
+    color:var(--white) !important;   
+}
+
+#kill{
+    color: var(--orange)
 }

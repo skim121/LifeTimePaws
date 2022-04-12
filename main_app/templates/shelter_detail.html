@@ -1,28 +1,28 @@
 {% extends 'baseneutral.html' %} 
-
+{% load bootstrap_icons %}
 
 {% block title %}
 LifeTimePaws | Shelter detail
 {% endblock %}
 
 {% block content %}
-<div class="container-xxl px-md-5 shadow-lg vh-100" id="shelterdetes">
+<button onclick="history.back()" class="btn btn-outline-primary" style="margin-left: 3%; margin-bottom: 2%;"> {% bs_icon 'arrow-bar-left' %} Back</button>
 <div style="text-align: center; ">
     <img src = "https://res.cloudinary.com/skim121/image/upload/c_scale,w_1000,h_400/{{shelter.image}}" alt="{{shelter.name}}">
     <h1 id="oneshelter" style="padding-top: 3%;">{{shelter.name}}</h1>
     <h3 id="oneshelter"> Location: {{shelter.location}} </h3>
-    <h3 id="oneshelter"> This shelter is a {{shelter.kill}} shelter. </h3>
+    <h3 id="oneshelter"> This shelter is a <span id="kill">{{shelter.kill}}</span> shelter. </h3>
     <a href="{{shelter.website}}" id="oneshelteratag">
     Click here to visit their website</a>
 
  
 
 </div>
-<div class="buttons" style="margin-top: 5%;">
+<div class="buttons" style="margin: 3% 0%;">
     {% if request.user.shelter_admin %}
     <a href="{% url 'shelter_update' shelter.pk %}" class="btn btn-outline-primary">Edit</a>
     <a href="{% url 'shelter_delete' shelter.pk %}" class="btn btn-primary">Delete</a>
     {% endif %}
 </div>
-</div>
+
 {% endblock %}
