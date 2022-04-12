@@ -7,17 +7,41 @@ LifeTimePaws | Profile
 
 {% block content %}
 
-<h1>{{ user.fullname }}'s Watching List:</h1>
+<h1 id="h1profile">{{ user.fullname }}'s Watching List:</h1>
 
-{% for animal in fav %}
-<h3>Name: {{animal.name}}</h3>
-<h3>Age: {{animal.age}}</h3>
-<img src = "https://res.cloudinary.com/skim121/image/upload/c_thumb,g_face,h_150,w_150/{{animal.image}}" alt="{{animal.name}}">
-</br>
-<a href="{% url 'paws_detail' animal.pk %}">See More</a>
-<a href="{% url 'favorite_add' animal.id %}">Remove from favorites</a>
 
-{% endfor %} 
+<div class="row align-itmes-start m-4">
+    {% for animal in fav %}
+    <div class="col-lg-3 justify-content-center text-center" id="pawscard">
+    <div class="card">
+        <img class="card-img-top" src = "https://res.cloudinary.com/skim121/image/upload/c_fill,g_face,h_650,w_650/{{animal.image}}" alt="{{animal.name}} image">
+        <div class="card-body">
+            <h3 class="card-title" id="listcardtitle">{{animal.name}}</h3>
+            <div class="row" style="font-size: large;">
+                    <p>{{animal.age}} old </br>
+                    {{animal.sex}} </br>
+                    {{animal.weight}} lbs</p>
+            </div>
+                <p><span style="font-weight:bold;">In shelter since: </span></br>
+                    {{dog.day_entered}}</p>
+            <a href="{% url 'paws_detail' animal.pk %}" style="text-decoration:none;">
+                <button class="btn btn-outline-primary">
+                    See More
+                </button>
+            </a>
+            <a href="{% url 'favorite_add' animal.id %}" style="text-decoration:none;">
+                <button class="btn btn-outline-primary">
+                    Unwatch Me
+                </button>
+            </a>
+        </div>
+    </div>
+    </div>
+    {% endfor %}
+</div>
+
+
+
 
 
 {% endblock %}

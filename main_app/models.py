@@ -112,7 +112,7 @@ class Animal(models.Model):
     weight = models.PositiveIntegerField()
     shelter = models.ForeignKey(Shelter, on_delete=models.CASCADE)
     day_entered = models.DateField()
-    due_date = models.DateField(blank=True)
+    due_date = models.DateField(blank=True, null=True)
     # description = models.CharField(max_length=250, blank=True) 
     description = RichTextField(blank=True, null=True)
     image = models.ImageField(null = True, blank = True, upload_to="images/")
