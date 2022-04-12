@@ -369,3 +369,14 @@
     color: var(--green) !important;
     font-weight: bold !important;
 }
+
+#oneshelteratag{
+    text-decoration: underline !important;
+    color: var(--orange) !important;
+    font-weight: bold !important; 
+    padding-bottom: 10%;
+}
+
+#oneshelteratag:hover{
+    color: #bd8050 !important;   
+}

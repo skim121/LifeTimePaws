@@ -12,13 +12,17 @@ LifeTimePaws | Shelter detail
     <h1 id="oneshelter" style="padding-top: 3%;">{{shelter.name}}</h1>
     <h3 id="oneshelter"> Location: {{shelter.location}} </h3>
     <h3 id="oneshelter"> This shelter is a {{shelter.kill}} shelter. </h3>
-    <a href="{{shelter.website}}" id="oneshelteratag">Click here to visit their website</a>
+    <a href="{{shelter.website}}" id="oneshelteratag">
+    Click here to visit their website</a>
 
-</br>
-{% if request.user.shelter_admin %}
-<a href="{% url 'shelter_update' shelter.pk %}">Edit</a>
-<a href="{% url 'shelter_delete' shelter.pk %}">Delete</a>
-{% endif %}
+ 
+
+</div>
+<div class="buttons" style="margin-top: 5%;">
+    {% if request.user.shelter_admin %}
+    <a href="{% url 'shelter_update' shelter.pk %}" class="btn btn-outline-primary">Edit</a>
+    <a href="{% url 'shelter_delete' shelter.pk %}" class="btn btn-primary">Delete</a>
+    {% endif %}
 </div>
 </div>
 {% endblock %}
