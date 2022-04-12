@@ -91,6 +91,13 @@ class AnimalDelete(DeleteView):
     template_name = "animal_delete_confirm.html"
     success_url = "/"
 
+    # def get(self,request, *args, **kwargs): 
+    #     return self.post(request, *args, **kwargs)
+
+
+
+
+
 class ShelterList(TemplateView):
     template_name = "shelter_list.html"
     def get_context_data(self, **kwargs):
