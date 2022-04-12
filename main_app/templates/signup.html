@@ -31,7 +31,12 @@
         {% if signup_view.non_field_errors %}
         <p>{{signup_view.non_field_errors</p>
         {% endif %} 
-        <button type="submit" class="btn btn-primary btn-block" id="signupbtn">Sign up</button>
+        <p id="italic"> Already have an account? 
+            <a href="/login">
+                Log In
+            </a>
+        </p>
+        <button type="submit" class="btn btn-primary btn-block w-100" id="signupbtn">Sign up</button>
    </form>
     </div>
     
