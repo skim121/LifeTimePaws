@@ -369,6 +369,14 @@
     margin: 3% 0;
 }
 
+#h5profile{
+    color: var(--gray) !important;
+    font-weight: bold !important;
+    text-align: center !important;
+    margin-bottom: 10%;
+}
+
+
 #oneshelter{
     color: var(--green) !important;
     font-weight: bold !important;

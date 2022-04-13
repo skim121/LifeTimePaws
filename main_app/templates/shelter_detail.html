@@ -8,7 +8,7 @@ LifeTimePaws | Shelter detail
 {% block content %}
 <button onclick="history.back()" class="btn btn-outline-primary" style="margin-left: 3%; margin-bottom: 2%;"> {% bs_icon 'arrow-bar-left' %} Back</button>
 <div style="text-align: center; ">
-    <img src = "https://res.cloudinary.com/skim121/image/upload/c_scale,w_1000,h_400/{{shelter.image}}" alt="{{shelter.name}}">
+    <img src = "https://res.cloudinary.com/skim121/image/upload/c_scale,h_400/{{shelter.image}}" alt="{{shelter.name}}">
     <h1 id="oneshelter" style="padding-top: 3%;">{{shelter.name}}</h1>
     <h3 id="oneshelter"> Location: {{shelter.location}} </h3>
     <h3 id="oneshelter"> This shelter is a <span id="kill">{{shelter.kill}}</span> shelter. </h3>
@@ -24,5 +24,43 @@ LifeTimePaws | Shelter detail
     <a href="{% url 'shelter_delete' shelter.pk %}" class="btn btn-primary">Delete</a>
     {% endif %}
 </div>
+
+</br>
+<div class="meetdiv">
+<img src="../static/images/whitepaws.png" style=" width:50px; height:50px;" class="whitepaw">
+<h3 id="h1profile">ANIMALS SHELTERING HERE</h3>
+</div>
+
+<div class="row align-itmes-start m-4">
+    {% for animal in animals  %}
+    <div class="col-lg-3 justify-content-center text-center" id="pawscard">
+    <div class="card">
+        <img class="card-img-top" src = "https://res.cloudinary.com/skim121/image/upload/c_fill,g_face,h_650,w_650/{{animal.image}}" alt="{{animal.name}} image">
+        <div class="card-body">
+            <h3 class="card-title" id="listcardtitle">{{animal.name}}</h3>
+            <div class="row" style="font-size: large;">
+                    <p>{{animal.age}} old </br>
+                    {{animal.sex}} </br>
+                    {{animal.weight}} lbs</p>
+            </div>
+                <p><span style="font-weight:bold;">In shelter since: </span></br>
+                    {{animal.day_entered}}</p>
+            <a href="{% url 'paws_detail' animal.pk %}" style="text-decoration:none;">
+                <button class="btn btn-outline-primary">
+                    See More
+                </button>
+            </a>
+        </div>
+    </div>
+    </div>
+    {% empty %}
+        <h5 id="h5profile"> No animals uploaded yet </h5>
+    {% endfor %}
+</div>
+
+
+
+
+
 
 {% endblock %}

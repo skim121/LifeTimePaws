@@ -105,9 +105,14 @@ class ShelterList(TemplateView):
         return context
 
 
-class ShelterDetail(DetailView): 
-    model = Shelter
-    template_name = "shelter_detail.html"
+# class ShelterDetail(DetailView): 
+#     model = Shelter
+#     template_name = "shelter_detail.html"
+
+def ShelterDetail(request, id):
+    shelter = get_object_or_404(Shelter, id=id)
+    animals  = Animal.objects.filter( shelter = shelter)
+    return render(request, 'shelter_detail.html', {'shelter': shelter, 'animals': animals}) 
 
 
 class ShelterCreate(CreateView): 
@@ -115,7 +120,7 @@ class ShelterCreate(CreateView):
     fields = ['name', 'location', 'kill', 'website', 'image']
     template_name = 'shelter_create.html'
     def get_success_url(self): 
-        return reverse('shelter_detail', kwargs={'pk': self.object.pk})
+        return reverse('shelter_detail', kwargs={'id': self.object.id})
 
 @method_decorator(login_required, name='dispatch')
 class ShelterUpdate(UpdateView): 
@@ -123,7 +128,7 @@ class ShelterUpdate(UpdateView):
     fields = ['name', 'location', 'kill', 'website', 'image']
     template_name = "shelter_update.html"
     def get_success_url(self): 
-        return reverse('shelter_detail', kwargs={'pk': self.object.pk})
+        return reverse('shelter_detail', kwargs={'id': self.object.id})
 
 @method_decorator(login_required, name='dispatch')
 class ShelterDelete(DeleteView): 
