@@ -18,8 +18,8 @@ import psycopg2
 import dj_database_url
 
 # load_dotenv()
-# DATABASE_URL = os.environ['DATABASE_URL']
-# conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+DATABASE_URL = os.environ['DATABASE_URL']
+conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
 # If the host name starts with 'live', DJANGO_HOST = "production"
 if socket.gethostname().startswith('live'):
@@ -49,7 +49,7 @@ SECRET_KEY = str(os.getenv('SECRET_KEY'))
 # DEBUG = True
 # Comment this out bc logic is above
 
-# ALLOWED_HOSTS = ['lifetimepaws.herokuapp.com']
+ALLOWED_HOSTS = ['lifetimepaws.herokuapp.com']
 #Take out the forward slash
 
 # Application definition
@@ -118,7 +118,7 @@ DATABASES = {
 }
 
 #This will be the real default once it's pushed to production
-# DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
 
 # Password validation
 # https://docs.djangoproject.com/en/4.0/ref/settings/#auth-password-validators
@@ -186,9 +186,9 @@ LOGIN_REDIRECT_URL = '/'
 LOGIN_URL = '/login/'
 
 
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-#     )
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+    )
 
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'skim121',

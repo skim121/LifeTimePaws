@@ -11,6 +11,8 @@ LifeTimePaws is a centralized platform for publicizing animals that need urgent 
 |
 [Technologies Used](https://github.com/skim121/LifeTimePaws/#technologies-used)
 |
+[Highlights](https://github.com/skim121/LifeTimePaws/#highlights)
+|
 [Unsolved Problems](https://github.com/skim121/LifeTimePaws/#unsolved-problems)
 |
 [Future Enhancements](https://github.com/skim121/LifeTimePaws/#future-enhancements)
@@ -44,13 +46,21 @@ See deployed site here: [Heroku Link](https://lifetimepaws.herokuapp.com/)
 ## Technologies Used:
 - Django (Python)
 - PostgreSQL
-- Bootstrap5
+- Bootstrap5 / Crispy Forms
 - Cloudinary
+- CKEditor
+
+## Highlights:
+- Custom user model with auth 
+- Cloudinary upload
+- Ability to favorite into profile page
+- Responsive design
 
 ## Unsolved Problems:
 - Debugging login directly from signup page 
 - Limit CRUD to user's items only 
 - Pagination for overflow data 
+- Searching with other keywords than name 
 
 ## Future Enhancements:
 - User password reset 
