@@ -114,7 +114,7 @@ def ShelterDetail(request, id):
     animals  = Animal.objects.filter( shelter = shelter)
     return render(request, 'shelter_detail.html', {'shelter': shelter, 'animals': animals}) 
 
-
+@method_decorator(login_required, name='dispatch')
 class ShelterCreate(CreateView): 
     model = Shelter
     fields = ['name', 'location', 'kill', 'website', 'image']
