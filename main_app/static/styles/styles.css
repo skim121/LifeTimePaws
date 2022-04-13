@@ -141,6 +141,10 @@
     transform: translate3D(0,-1px,0) scale(1.03);
 }
 
+#homesq:hover{
+    transform: translate3D(0,-1px,0) scale(1.03);
+}
+
 #homecardimg{
     border-radius: 1.5rem 1.5rem 0 0 !important; 
 }
@@ -414,10 +418,12 @@
 
 #aboutp{
     margin: 4% 25%;
+    color: var(--gray) !important;
 }
 
 #splitcol1{
     background: var(--orange) !important;
+    padding: 5%;
 }
 #splitcol2{
     background: var(--green) !important;
@@ -433,24 +439,28 @@
 
 #howto{
     background-color: white !important;
-    padding-bottom: 6%;
+    padding-bottom: 5%;
 }
 
 #h1howto{
     color: var(--green) !important;
     font-weight: bold !important;
-    padding: 2% 10%;
+    padding: 3% 10%;
+    text-align:center !important;
 
 }
 
 #help{
     background: var(--orange) !important; 
-    padding: 10%; 
+    padding: 5% 25%; 
+    text-align: justify !important;
 }
 
 #helptitle{
     color: white !important;
     font-weight: bold !important;
+    text-align: center !important;
+    padding-bottom: 2%;
 }
 
 #helph5{
@@ -460,4 +470,9 @@
 
 #helpp{
     color: white !important;
+    font-size: 18px;
+}
+
+#number{
+    color: var(--yellow) !important;
 }
